@@ -9,6 +9,7 @@ func tick_game() -> void:
 	# Call this function to advance the game by one day (tick)
 	# This is called by the timer every timeout
 	post_tick()
+	Globals.DAY += 1
 	pre_tick()
 
 func pre_tick() -> void:
@@ -23,7 +24,6 @@ func post_tick() -> void:
 	# Typically this would be "causes", so stuff like determining whether or not
 	# to start a dust storm would go here, or stuff like currency calculation.
 	print("Post tick, day " + str(Globals.DAY))
-	Globals.DAY += 1
 	pass
 
 func init_game() -> void:
