@@ -2,8 +2,6 @@ extends Node  # Should this be a resource instead?
 
 class_name DomeCorporation
 
-# Redundant between DomeCorporation and Dome
-
 # Properties
 @export var corp: Enums.DomeCorpsEnum
 @export var corpName: String

@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cbfld7mg0yl1c" path="res://Assets/Tilesets/Building/map2.png" id="8_d6a80"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GridMap/Building.gd" id="9_3o22j"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GridMap/MapCamera.gd" id="10_1oqbd"]
-[ext_resource type="AudioStream" uid="uid://cd0s4umflrjwg" path="res://Assets/Audio/pop-39222.mp3" id="10_el7re"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_127y8"]
 texture = ExtResource("4_knbe6")
@@ -128,9 +127,6 @@ tile_set = SubResource("TileSet_0al8a")
 [node name="Building" type="TileMapLayer" parent="GridMap"]
 tile_set = SubResource("TileSet_vm6sv")
 script = ExtResource("9_3o22j")
-
-[node name="PopOnClick" type="AudioStreamPlayer2D" parent="GridMap/Building"]
-stream = ExtResource("10_el7re")
 
 [node name="MapCamera" type="Camera2D" parent="GridMap"]
 zoom = Vector2(2.25, 2.25)

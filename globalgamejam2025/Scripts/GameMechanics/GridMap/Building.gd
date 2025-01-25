@@ -1,6 +1,6 @@
 extends TileMapLayer
 
-@onready var pop_sound = $PopOnClick
+var ding_sound = preload("res://Assets/Audio/pop-39222.mp3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,8 +12,9 @@ func _input(event: InputEvent) -> void:
 		var click_local_poistion = to_local(click_global_position)
 		var cell_coordinates = local_to_map(click_local_poistion)
 		if validate_location_by_coordinate(cell_coordinates):
-			# EMIT EVENT OR CHECK OBJECT IN GRID: resource_collect
-			pop_sound.play()
+			var audio_utils = AudioUtils.duplicate()
+			self.add_child(audio_utils)
+			audio_utils.play_sound(ding_sound)
 		print(cell_coordinates)
 
 # CONNECT THIS TO AN EMITTER, PREFERRABLY ON BUILD EVENT

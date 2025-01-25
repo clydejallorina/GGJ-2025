@@ -1,6 +1,7 @@
 extends Node
 
 class_name Dome
+
 # Properties
 @export var type: DomeType
 @export var corp: DomeCorporation
@@ -8,6 +9,8 @@ class_name Dome
 
 @export var canClick: bool
 @export var canCollapse: bool  # Used for cooldown
+
+@export var remainingBuildTime: int
 
 @export var isCollapsed: bool
 @export var isStrike: bool
@@ -20,6 +23,7 @@ func _init(initType: Enums.DomeTypeEnum, initCorp: Enums.DomeCorpsEnum, initPos:
 	position = initPos
 
 	# Set defaults
+	remainingBuildTime = getBuildTime()
 	canClick = false
 	canCollapse = true
 	isCollapsed = false
@@ -28,7 +32,7 @@ func _init(initType: Enums.DomeTypeEnum, initCorp: Enums.DomeCorpsEnum, initPos:
 
 # Methods
 func getBuildTime() -> int:
-	return type.baseBuildTime + corp.buildTimeMod
+	return min(1, type.baseBuildTime + corp.buildTimeMod)
 
 
 func getCost() -> Dictionary:
@@ -39,7 +43,7 @@ func getCost() -> Dictionary:
 
 
 func getIncome() -> Dictionary:
-	if isCollapsed || isStrike:
+	if isCollapsed || isStrike || remainingBuildTime > 0:
 		return Constants.EMPTY_RESOURCE_BATCH
 
 	var income = type.baseIncome
@@ -49,7 +53,7 @@ func getIncome() -> Dictionary:
 
 
 func getUpkeep() -> Dictionary:
-	if isCollapsed:
+	if isCollapsed || remainingBuildTime > 0:
 		return Constants.EMPTY_RESOURCE_BATCH
 
 	var upkeep = type.baseUpkeep
@@ -58,13 +62,11 @@ func getUpkeep() -> Dictionary:
 	return upkeep
 
 
-func getCollapseChance() -> float:
-	if isCollapsed || canCollapse:
+func getCollapseChance(baseCollapseChance) -> float:
+	if isCollapsed || canCollapse || remainingBuildTime > 0:
 		return 0
 
-	var collapseChance = type.baseCollapseChance
-	collapseChance *= corp.collapseMult
-	return collapseChance
+	return baseCollapseChance * corp.collapseMult
 
 
 func setStrike(strikeState: bool):
@@ -73,3 +75,10 @@ func setStrike(strikeState: bool):
 
 func setCollapse(collapseState: bool):
 	isCollapsed = collapseState
+
+
+func buildTick():
+	if remainingBuildTime == 0:
+		return
+
+	remainingBuildTime -= 1
