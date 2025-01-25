@@ -1,28 +1,35 @@
 extends Node
 
 class_name Dome
-
-# Enums
-enum DomeStatus {PRODUCING, CLICKABLE, STRIKE, COLLAPSED, BUILDING}
-
-
 # Properties
 @export var type: DomeType
 @export var corp: DomeCorporation
-@export var currentStatus: DomeStatus
 @export var position: Vector2i
-@export var canClick: bool	# Might be changed later
-@export var canCollapse: bool	# Might be changed later
-@export var canStrike: bool	# Used for cooldown
+
+@export var canClick: bool
+@export var canCollapse: bool  # Used for cooldown
+
+@export var isCollapsed: bool
+@export var isStrike: bool
+
 
 # Class Constructor
-func _init(initType: Enums.DomeTypeEnum, initCorp: Enums.DomeCorpsEnum):
+func _init(initType: Enums.DomeTypeEnum, initCorp: Enums.DomeCorpsEnum, initPos: Vector2i):
 	type = DomeType.new(initType)
 	corp = DomeCorporation.new(initCorp)
+	position = initPos
+
+	# Set defaults
+	canClick = false
+	canCollapse = true
+	isCollapsed = false
+	isStrike = false
+
 
 # Methods
 func getBuildTime() -> int:
 	return type.baseBuildTime + corp.buildTimeMod
+
 
 func getCost() -> Dictionary:
 	var cost = type.baseCost
@@ -30,24 +37,39 @@ func getCost() -> Dictionary:
 		cost[key] *= corp.costMult
 	return cost
 
+
 func getIncome() -> Dictionary:
-	# TODO: Take into account current status
+	if isCollapsed || isStrike:
+		return Constants.EMPTY_RESOURCE_BATCH
+
 	var income = type.baseIncome
 	for key in income.keys():
 		income[key] *= corp.incomeMult
 	return income
 
+
 func getUpkeep() -> Dictionary:
+	if isCollapsed:
+		return Constants.EMPTY_RESOURCE_BATCH
+
 	var upkeep = type.baseUpkeep
 	for key in upkeep.keys():
 		upkeep[key] *= corp.upkeepMult
 	return upkeep
 
-# TODO: Compute based on type, corporation, and status
-func getCollapseChance() -> float:
-	# Chance to collapse randomly. Does not include Marsquake collapse
-	return 0.05	# For now, 5% chance per tick?
 
-func setStatus(newStatus: DomeStatus):
-	currentStatus = newStatus
-	# Maybe add additional functionality based on status (e.g. on strikes, on collapse)
+func getCollapseChance() -> float:
+	if isCollapsed || canCollapse:
+		return 0
+
+	var collapseChance = type.baseCollapseChance
+	collapseChance *= corp.collapseMult
+	return collapseChance
+
+
+func setStrike(strikeState: bool):
+	isStrike = strikeState
+
+
+func setCollapse(collapseState: bool):
+	isCollapsed = collapseState
