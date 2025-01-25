@@ -32,14 +32,14 @@ func _init(initType: Enums.DomeTypeEnum, initCorp: Enums.DomeCorpsEnum, initPos:
 
 # Methods
 func getBuildTime() -> int:
-	return min(1, type.baseBuildTime + corp.buildTimeMod)
+	return min(1, type.baseBuildTime + corp.buildTimeMod) * Globals.dome_construction_time_multiplier
 
 
 func getCost() -> Dictionary:
 	var cost = type.baseCost
 	for key in cost.keys():
 		cost[key] *= corp.costMult
-	return cost
+	return cost * Globals.dome_construction_cost_multiplier
 
 
 func getIncome() -> Dictionary:
@@ -49,6 +49,8 @@ func getIncome() -> Dictionary:
 	var income = type.baseIncome
 	for key in income.keys():
 		income[key] *= corp.incomeMult
+		income[key] *= Globals.income_multipliers[self.type]
+		income[key] *= Globals.global_income_multiplier
 	return income
 
 
@@ -58,7 +60,9 @@ func getUpkeep() -> Dictionary:
 
 	var upkeep = type.baseUpkeep
 	for key in upkeep.keys():
-		upkeep[key] *= corp.upkeepMult
+		upkeep[key] *= corp.upkeepMult 
+		upkeep[key] *= Globals.upkeep_multipliers[self.type]
+		upkeep[key] *= Globals.global_upkeep_multiplier
 	return upkeep
 
 

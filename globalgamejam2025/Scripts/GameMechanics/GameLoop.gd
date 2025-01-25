@@ -30,6 +30,13 @@ func init_game() -> void:
 	# Game initialization stuff here
 	ticker_node.wait_time = Globals.SECONDS_PER_TICK
 	ticker_node.start()
+	
+	Globals.global_upkeep_multiplier = 1
+	Globals.funds = 100
+	Globals.life_support = 100
+	Globals.fuel = 100
+	Globals.minerals = 0
+	Globals.alloys = 100
 
 func _on_game_ticker_timeout() -> void:
 	# Tick the game every time the timer times out
