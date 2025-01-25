@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbj6x2nin06eg"
-path="res://.godot/imported/building_life_support_dome.png-83356f122f3ceeb2743b5496d9d261a0.ctex"
+uid="uid://bgi6movy7trkh"
+path="res://.godot/imported/building_mining_dome.png-21ce6c4e94c035a642d8f5a76b0a871d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesets/Building/building_life_support_dome.png"
-dest_files=["res://.godot/imported/building_life_support_dome.png-83356f122f3ceeb2743b5496d9d261a0.ctex"]
+source_file="res://Assets/Tilesets/Building/building_mining_dome.png"
+dest_files=["res://.godot/imported/building_mining_dome.png-21ce6c4e94c035a642d8f5a76b0a871d.ctex"]
 
 [params]
 

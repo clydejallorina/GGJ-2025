@@ -23,6 +23,7 @@ JsonParser="*res://Scripts/Utils/JsonParser.gd"
 Enums="*res://Scripts/Enums.gd"
 Constants="*res://Scripts/Constants.gd"
 AudioUtils="*res://Scripts/Utils/AudioUtils.gd"
+Signals="*res://Scripts/Signals.gd"
 
 [display]
 

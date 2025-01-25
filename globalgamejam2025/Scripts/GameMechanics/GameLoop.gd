@@ -4,6 +4,21 @@ extends Node
 
 func _ready() -> void:
 	init_game()
+	
+func _input(event: InputEvent) -> void:
+	## REMOVE THIS, JUST FOR TESTING
+	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_A:
+		var valid_domes = [
+			Enums.DomeTypeEnum.HOUSING,
+			Enums.DomeTypeEnum.LIFE_SUPPORT,
+			Enums.DomeTypeEnum.RESEARCH,
+			Enums.DomeTypeEnum.INDUSTRIAL,
+			Enums.DomeTypeEnum.MINING,
+		]
+		Signals.build_dome.emit(valid_domes.pick_random(), Enums.DomeCorpsEnum.values().pick_random())
+		
+	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_D:
+		Signals.destroy_dome.emit()
 
 func tick_game() -> void:
 	# Call this function to advance the game by one day (tick)
