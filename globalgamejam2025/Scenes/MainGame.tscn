@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://7j1gcqyfu5h1"]
+[gd_scene load_steps=21 format=3 uid="uid://7j1gcqyfu5h1"]
 
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GameLoop.gd" id="1_v83y0"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/Messaging/Messaging.gd" id="2_6eoon"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bf8wqldlieciv" path="res://Assets/Tilesets/Terrain/practice iso tiles.png" id="5_nuxp2"]
 [ext_resource type="Texture2D" uid="uid://d2efcmotcd61g" path="res://Assets/Tilesets/Building/building_command_center.png" id="6_vythf"]
 [ext_resource type="Texture2D" uid="uid://bnxn0500e1kn2" path="res://Assets/Tilesets/Building/building_dome.png" id="7_uscja"]
+[ext_resource type="Texture2D" uid="uid://dxjtyvvhoye4i" path="res://Assets/Tilesets/Building/building_life_support_dome.png" id="8_bqa2l"]
 [ext_resource type="Texture2D" uid="uid://cbfld7mg0yl1c" path="res://Assets/Tilesets/Building/map2.png" id="8_d6a80"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GridMap/Building.gd" id="9_3o22j"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GridMap/MapCamera.gd" id="10_1oqbd"]
@@ -71,6 +72,12 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yw2gu"]
+texture = ExtResource("8_bqa2l")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2o27f"]
 texture = ExtResource("8_d6a80")
 texture_region_size = Vector2i(32, 32)
@@ -99,7 +106,8 @@ tile_offset_axis = 1
 tile_size = Vector2i(32, 16)
 sources/0 = SubResource("TileSetAtlasSource_0bm6d")
 sources/1 = SubResource("TileSetAtlasSource_xv3to")
-sources/3 = SubResource("TileSetAtlasSource_2o27f")
+sources/2 = SubResource("TileSetAtlasSource_yw2gu")
+sources/999 = SubResource("TileSetAtlasSource_2o27f")
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_v83y0")

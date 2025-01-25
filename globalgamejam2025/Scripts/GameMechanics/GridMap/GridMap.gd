@@ -6,16 +6,16 @@ extends Node2D
 var terrain_base_mars_source_id = 0
 var terrain_base_mars = Vector2i(0,0)
 
-var building_command_center_source_id = 0
-var building_command_center = Vector2i(0,0)
-var building_dome_source_id = 1
-var building_dome = Vector2i(0,0)
-
-# THESE ARE JUST FOR TESTS
-var building_map2_source_id = 3
-var building_map2_box = Vector2i(4,2)
-var building_map2_half_slab = Vector2i(6,2)
-var building_map2_pillar = Vector2i(7,1)
+var building_to_tileset_source_map = {
+	Enums.DomeTypeEnum.HOUSING: 1,
+	Enums.DomeTypeEnum.INDUSTRIAL: null,
+	Enums.DomeTypeEnum.MINING: null,
+	Enums.DomeTypeEnum.LIFE_SUPPORT: 2,
+	Enums.DomeTypeEnum.LUXURY: null,
+	Enums.DomeTypeEnum.RESEARCH: 0,
+	Enums.DomeTypeEnum.SPACE_ELEVATOR: null,
+	Enums.DomeTypeEnum.WORMHOLE: null,
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,24 +27,33 @@ func generate_terrain():
 	for x in range(Globals.GRID_SIZE[0]):
 		for y in range(Globals.GRID_SIZE[1]):
 			terrain.set_cell(Vector2(x,y), terrain_base_mars_source_id, terrain_base_mars)
-	
+
+# Can make this load from SAVE
 func generate_building():
 	# Randomly generate buildings for now
-	var command_center_location = [Vector2(0,0), Vector2(Globals.GRID_SIZE[0] - 1, Globals.GRID_SIZE[1] - 1)]
+	var command_center_location = [Vector2i(Globals.GRID_SIZE[0] - 2, Globals.GRID_SIZE[1] - 2)]
 	
-	for locaction in command_center_location:
-		building.set_cell(locaction, building_command_center_source_id, building_command_center)
-		
+	for location in command_center_location:
+		building.set_cell(location, building_to_tileset_source_map[Enums.DomeTypeEnum.RESEARCH], Vector2i(0,0))
+
 	for x in range(Globals.GRID_SIZE[0]):
 		var row = []
 		for y in range(Globals.GRID_SIZE[1]):
-			if Vector2(x,y) in command_center_location:
-				row.append(building_command_center_source_id)
+			if Vector2i(x,y) in command_center_location:
+				row.append(Dome.new(Enums.DomeTypeEnum.RESEARCH, Enums.DomeCorpsEnum.CORP1, Vector2i(x,y)))
 				continue
-			
-			building.set_cell(Vector2(x,y), building_dome_source_id, building_dome)
-			row.append(building_dome_source_id)
-			
+				
+			if x == 1:
+				if y < Globals.GRID_SIZE[1]/2:
+					row.append(Dome.new(Enums.DomeTypeEnum.HOUSING, Enums.DomeCorpsEnum.CORP1, Vector2i(x,y)))
+					building.set_cell(Vector2i(x,y), building_to_tileset_source_map[Enums.DomeTypeEnum.HOUSING], Vector2i(0,0))
+					continue
+				if y >= Globals.GRID_SIZE[1]/2:
+					row.append(Dome.new(Enums.DomeTypeEnum.LIFE_SUPPORT, Enums.DomeCorpsEnum.CORP1, Vector2i(x,y)))
+					building.set_cell(Vector2i(x,y), building_to_tileset_source_map[Enums.DomeTypeEnum.LIFE_SUPPORT], Vector2i(0,0))
+					continue
+
+			row.append(null)
 		Globals.GRID.append(row)
 	
 	# CHANGE GRID CONTENT TO DOME ENTITIES
