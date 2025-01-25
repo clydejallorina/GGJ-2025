@@ -9,18 +9,19 @@ const EMPTY_RESOURCE_BATCH: Dictionary = {
 }
 
 const BUILDING_TO_TILESET_SOURCE_MAP: Dictionary = {
+	Enums.DomeTypeEnum.CONTROL_CENTER: 0,
 	Enums.DomeTypeEnum.HOUSING: 1,
 	Enums.DomeTypeEnum.INDUSTRIAL: 3,
 	Enums.DomeTypeEnum.MINING: 4,
 	Enums.DomeTypeEnum.LIFE_SUPPORT: 2,
 	Enums.DomeTypeEnum.LUXURY: null,
-	Enums.DomeTypeEnum.RESEARCH: 0,
+	Enums.DomeTypeEnum.RESEARCH: 5,
 	Enums.DomeTypeEnum.SPACE_ELEVATOR: null,
 	Enums.DomeTypeEnum.WORMHOLE: null,
 }
 
 const TWO_BY_TWO_BUILDINGS: Array[Enums.DomeTypeEnum] = [
-	Enums.DomeTypeEnum.RESEARCH,
+	Enums.DomeTypeEnum.CONTROL_CENTER,
 ]
 
 var DOME_TYPE_STATS = {
@@ -83,6 +84,14 @@ var DOME_TYPE_STATS = {
 	Enums.DomeTypeEnum.WORMHOLE:
 	{
 		"domeName": "Wormhole",
+		"baseCost": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
+		"baseUpkeep": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
+		"baseIncome": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
+		"baseBuildTime": 2
+	},
+	Enums.DomeTypeEnum.CONTROL_CENTER:
+	{
+		"domeName": "Control Center",
 		"baseCost": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
 		"baseUpkeep": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
 		"baseIncome": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},

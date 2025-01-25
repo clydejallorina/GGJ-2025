@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://7j1gcqyfu5h1"]
+[gd_scene load_steps=27 format=3 uid="uid://7j1gcqyfu5h1"]
 
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GameLoop.gd" id="1_v83y0"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/Messaging/Messaging.gd" id="2_6eoon"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dgl1ox0ya8qy1" path="res://Assets/Tilesets/Building/building_industrial_dome.png" id="9_wbpdp"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GridMap/MapCamera.gd" id="10_1oqbd"]
 [ext_resource type="Texture2D" uid="uid://bgi6movy7trkh" path="res://Assets/Tilesets/Building/building_mining_dome.png" id="10_gbq6n"]
+[ext_resource type="Texture2D" uid="uid://c67sft0cnewri" path="res://Assets/Tilesets/Building/building_research_dome.png" id="11_bnniw"]
 [ext_resource type="PackedScene" uid="uid://df3n6js61of5m" path="res://Scenes/Common/TopBar/TopBar.tscn" id="12_ftt7d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_127y8"]
@@ -93,6 +94,12 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5b6e3"]
+texture = ExtResource("11_bnniw")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2o27f"]
 texture = ExtResource("8_d6a80")
 texture_region_size = Vector2i(32, 32)
@@ -125,6 +132,7 @@ sources/999 = SubResource("TileSetAtlasSource_2o27f")
 sources/3 = SubResource("TileSetAtlasSource_hrgds")
 sources/4 = SubResource("TileSetAtlasSource_pvxem")
 sources/2 = SubResource("TileSetAtlasSource_3pmeo")
+sources/5 = SubResource("TileSetAtlasSource_5b6e3")
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_v83y0")

@@ -19,11 +19,7 @@ func generate_terrain():
 
 # Can make this load from SAVE
 func generate_building():
-	for x in range(Globals.GRID_SIZE[0]):
-		var row = []
-		for y in range(Globals.GRID_SIZE[1]):
-			row.append(null)
-		Globals.GRID.append(row)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
