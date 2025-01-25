@@ -39,19 +39,15 @@ func _init(initType: Enums.DomeTypeEnum, initCorp: Enums.DomeCorpsEnum, initPos:
 	isCollapsed = false
 	isStrike = false
 
-func _init(initType: Enums.DomeTypeEnum, initCorp: Enums.DomeCorpsEnum):
-	type = DomeType.new(initType)
-	corp = DomeCorporation.new(initCorp)
-
 # Methods
 func getBuildTime() -> int:
-	return domeStats.baseBuildTime + corpStats.buildTimeMod
+	return min(1, domeStats.baseBuildTime + corpStats.buildTimeMod) * Globals.dome_construction_time_multiplier
 
 func getCost() -> Dictionary:
 	var cost = domeStats.baseCost
 	for key in cost.keys():
 		cost[key] *= corpStats.costMult
-	return cost
+	return cost * Globals.dome_construction_cost_multiplier
 
 func getIncome() -> Dictionary:
 	if isCollapsed || isStrike || remainingBuildTime > 0:
@@ -60,6 +56,8 @@ func getIncome() -> Dictionary:
 	var income = domeStats.baseIncome
 	for key in income.keys():
 		income[key] *= corpStats.incomeMult
+		income[key] *= Globals.income_multipliers[type]
+		income[key] *= Globals.global_income_multiplier
 	return income
 
 func getUpkeep() -> Dictionary:
@@ -68,7 +66,9 @@ func getUpkeep() -> Dictionary:
 
 	var upkeep = domeStats.baseUpkeep
 	for key in upkeep.keys():
-		upkeep[key] *= corpStats.upkeepMult
+		upkeep[key] *= corpStats.upkeepMult 
+		upkeep[key] *= Globals.upkeep_multipliers[type]
+		upkeep[key] *= Globals.global_upkeep_multiplier
 	return upkeep
 
 
@@ -92,10 +92,6 @@ func buildTick():
 		return
 
 	remainingBuildTime -= 1
-# TODO: Compute based on type, corporation, and status
-func getCollapseChance() -> float:
-	# Chance to collapse randomly. Does not include Marsquake collapse
-	return 0.05	# For now, 5% chance per tick?
 
 func setStatus(newStatus: DomeStatus):
 	currentStatus = newStatus

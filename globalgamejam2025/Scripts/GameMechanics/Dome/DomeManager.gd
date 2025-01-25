@@ -39,7 +39,7 @@ func getTotalUpkeep() -> int:
 
 
 func countDomesByType(domeType: Enums.DomeTypeEnum, includeBuilding: bool = false) -> int:
-	var filteredDomes = domes.filter(func(dome: Dome): return dome.type.type == domeType).size()
+	var filteredDomes = domes.filter(func(dome: Dome): return dome.type == domeType).size()
 
 	if !includeBuilding:
 		filteredDomes = filteredDomes.filter(func(dome: Dome): return dome.remainingBuildTime == 0)
