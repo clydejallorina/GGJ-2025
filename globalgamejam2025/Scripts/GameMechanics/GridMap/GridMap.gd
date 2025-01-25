@@ -1,10 +1,21 @@
 extends Node2D
 
+@onready var lower_terrain = $LowerTerrain
 @onready var terrain = $Terrain
 @onready var building = $Building
 
-var terrain_base_mars_source_id = 0
-var terrain_base_mars = Vector2i(0,0)
+var terrain_base_mars_source_ids: Dictionary = {
+	"Terrain1": 0,
+	"Terrain2": 1,
+}
+
+var lower_terrain_base_mars_source_id = 0
+var lower_terrain_base_mars:Dictionary = {
+	"Terrain1": Vector2i(4,0),
+	"Terrain2": Vector2i(5,0),
+	"Terrain3": Vector2i(5,1),
+	"Terrain4": Vector2i(6,0),
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,7 +26,17 @@ func generate_terrain():
 	# Build habitable area
 	for x in range(Globals.GRID_SIZE[0]):
 		for y in range(Globals.GRID_SIZE[1]):
-			terrain.set_cell(Vector2(x,y), terrain_base_mars_source_id, terrain_base_mars)
+			terrain.set_cell(Vector2(x,y), terrain_base_mars_source_ids.values().pick_random(), Vector2i(0,0))
+			
+	for x in range(100):
+		for y in range(100):
+			#if x in range(Globals.GRID_SIZE[0]) and y in range(Globals.GRID_SIZE[1]):
+				#continue
+				
+			lower_terrain.set_cell(Vector2(x,y), lower_terrain_base_mars_source_id, lower_terrain_base_mars.values().pick_random())
+			lower_terrain.set_cell(Vector2(-x,y), lower_terrain_base_mars_source_id, lower_terrain_base_mars.values().pick_random())
+			lower_terrain.set_cell(Vector2(x,-y), lower_terrain_base_mars_source_id, lower_terrain_base_mars.values().pick_random())
+			lower_terrain.set_cell(Vector2(-x,-y), lower_terrain_base_mars_source_id, lower_terrain_base_mars.values().pick_random())
 
 # Can make this load from SAVE
 func generate_building():

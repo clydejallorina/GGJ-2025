@@ -13,6 +13,9 @@ func _input(event: InputEvent) -> void:
 		
 	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_D:
 		Signals.destroy_dome.emit()
+		
+	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_S:
+		Signals.screen_shake.emit(1)
 
 func tick_game() -> void:
 	# Call this function to advance the game by one day (tick)
@@ -26,14 +29,14 @@ func pre_tick() -> void:
 	# Typically this would be the "effects", so setting whether certain tiles
 	# are enabled or not would probably fall under here.
 	print("Pre tick, day " + str(Globals.DAY))
-	Globals.pre_tick.emit(Globals.DAY)
+	Signals.pre_tick.emit(Globals.DAY)
 
 func post_tick() -> void:
 	# Handle all processes that need to be done once the day (tick) ends
 	# Typically this would be "causes", so stuff like determining whether or not
 	# to start a dust storm would go here, or stuff like currency calculation.
 	print("Post tick, day " + str(Globals.DAY))
-	Globals.post_tick.emit(Globals.DAY)
+	Signals.post_tick.emit(Globals.DAY)
 
 func init_game() -> void:
 	# Game initialization stuff here
