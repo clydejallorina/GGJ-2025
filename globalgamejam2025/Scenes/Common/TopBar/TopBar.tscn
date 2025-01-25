@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://df3n6js61of5m"]
+[gd_scene load_steps=13 format=3 uid="uid://df3n6js61of5m"]
 
+[ext_resource type="Script" path="res://Scripts/GameMechanics/UI/TopBar.gd" id="1_fwgvi"]
 [ext_resource type="Theme" uid="uid://ds47nbwtmpm3w" path="res://Scenes/Common/TopBar/TopBarDayCounter.tres" id="1_kexu6"]
 [ext_resource type="Theme" uid="uid://bp4xhom4uvy2s" path="res://Scenes/Common/TopBar/TopBarMargin.tres" id="1_lucnj"]
 [ext_resource type="Theme" uid="uid://fwq3tnm3nfbk" path="res://Scenes/Common/TopBar/TopBarResupplyLabel.tres" id="2_5tjlv"]
@@ -19,6 +20,7 @@ Panel/styles/panel = SubResource("StyleBoxFlat_nhmrr")
 [node name="TopBar" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_fwgvi")
 
 [node name="TopBarBasePanel" type="Panel" parent="."]
 custom_minimum_size = Vector2(1280, 70)
@@ -62,7 +64,7 @@ layout_mode = 2
 texture = ExtResource("2_44g23")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Funds"]
+[node name="FundsLabel" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Funds"]
 layout_mode = 2
 theme = ExtResource("2_8ln6c")
 text = "5000"
@@ -81,7 +83,7 @@ layout_mode = 2
 texture = ExtResource("4_vymtt")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Alloys"]
+[node name="AlloysLabel" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Alloys"]
 layout_mode = 2
 theme = ExtResource("2_8ln6c")
 text = "5000"
@@ -100,7 +102,7 @@ layout_mode = 2
 texture = ExtResource("5_g8cfb")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Life Support"]
+[node name="LifeSupLabel" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Life Support"]
 layout_mode = 2
 theme = ExtResource("2_8ln6c")
 text = "5000"
@@ -123,7 +125,7 @@ layout_mode = 2
 texture = ExtResource("6_ubi03")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow/Minerals"]
+[node name="ResLabel" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow/Minerals"]
 layout_mode = 2
 theme = ExtResource("2_8ln6c")
 text = "5000"
@@ -142,7 +144,7 @@ layout_mode = 2
 texture = ExtResource("7_oa1uh")
 expand_mode = 3
 
-[node name="Label" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow/Fuel"]
+[node name="FuelLabel" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow/Fuel"]
 layout_mode = 2
 theme = ExtResource("2_8ln6c")
 text = "5000"
