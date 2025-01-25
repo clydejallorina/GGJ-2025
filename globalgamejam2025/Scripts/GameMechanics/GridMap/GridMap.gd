@@ -1,6 +1,5 @@
 extends Node2D
 
-var grid_size = Vector2(8,8)
 @onready var terrain = $Terrain
 @onready var building = $Building
 
@@ -25,18 +24,20 @@ func _ready() -> void:
 
 func generate_terrain():
 	# Build habitable area
-	for x in range(grid_size[0]):
-		for y in range(grid_size[1]):
+	for x in range(Globals.GRID_SIZE[0]):
+		for y in range(Globals.GRID_SIZE[1]):
 			terrain.set_cell(Vector2(x,y), terrain_base_mars_source_id, terrain_base_mars)
 	
 func generate_building():
 	# Randomly generate buildings for now
-	var command_center_location = [Vector2(0,0), Vector2(grid_size[0] - 1, grid_size[1] - 1)]
+	var command_center_location = [Vector2(0,0), Vector2(Globals.GRID_SIZE[0] - 1, Globals.GRID_SIZE[1] - 1)]
+	
 	for locaction in command_center_location:
 		building.set_cell(locaction, building_command_center_source_id, building_command_center)
-	for x in range(grid_size[0]):
+		
+	for x in range(Globals.GRID_SIZE[0]):
 		var row = []
-		for y in range(grid_size[1]):
+		for y in range(Globals.GRID_SIZE[1]):
 			if Vector2(x,y) in command_center_location:
 				row.append(building_command_center_source_id)
 				continue
