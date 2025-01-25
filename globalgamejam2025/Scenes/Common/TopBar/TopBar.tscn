@@ -1,0 +1,186 @@
+[gd_scene load_steps=12 format=3 uid="uid://df3n6js61of5m"]
+
+[ext_resource type="Theme" uid="uid://ds47nbwtmpm3w" path="res://Scenes/Common/TopBar/TopBarDayCounter.tres" id="1_kexu6"]
+[ext_resource type="Theme" uid="uid://bp4xhom4uvy2s" path="res://Scenes/Common/TopBar/TopBarMargin.tres" id="1_lucnj"]
+[ext_resource type="Theme" uid="uid://fwq3tnm3nfbk" path="res://Scenes/Common/TopBar/TopBarResupplyLabel.tres" id="2_5tjlv"]
+[ext_resource type="Theme" uid="uid://bxexhxsj3gpol" path="res://Scenes/Common/TopBar/TopBarResourceCounter.tres" id="2_8ln6c"]
+[ext_resource type="Texture2D" uid="uid://c66msxmfjqmbv" path="res://Assets/Icons/funds.png" id="2_44g23"]
+[ext_resource type="Texture2D" uid="uid://bil467n7alr0x" path="res://Assets/Icons/alloys.png" id="4_vymtt"]
+[ext_resource type="Texture2D" uid="uid://b8vblgqvkwpeh" path="res://Assets/Icons/life_support.png" id="5_g8cfb"]
+[ext_resource type="Texture2D" uid="uid://dl2jsk5a8vapg" path="res://Assets/Icons/minerals.png" id="6_ubi03"]
+[ext_resource type="Texture2D" uid="uid://da5m70cum3lb3" path="res://Assets/Icons/fuel.png" id="7_oa1uh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhmrr"]
+bg_color = Color(0.0588235, 0.164706, 0.247059, 1)
+
+[sub_resource type="Theme" id="Theme_pvwsa"]
+Panel/styles/panel = SubResource("StyleBoxFlat_nhmrr")
+
+[node name="TopBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TopBarBasePanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1280, 70)
+layout_mode = 0
+theme = SubResource("Theme_pvwsa")
+
+[node name="TopBarContainer" type="HBoxContainer" parent="TopBarBasePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResourceMarginContainer" type="MarginContainer" parent="TopBarBasePanel/TopBarContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lucnj")
+
+[node name="ResourceCenterContainer" type="CenterContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer"]
+layout_mode = 2
+
+[node name="ResourceTopRow" type="HBoxContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Funds" type="HBoxContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Funds"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Funds/CenterContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+texture = ExtResource("2_44g23")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Funds"]
+layout_mode = 2
+theme = ExtResource("2_8ln6c")
+text = "5000"
+
+[node name="Alloys" type="HBoxContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Alloys"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Alloys/CenterContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+texture = ExtResource("4_vymtt")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Alloys"]
+layout_mode = 2
+theme = ExtResource("2_8ln6c")
+text = "5000"
+
+[node name="Life Support" type="HBoxContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Life Support"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Life Support/CenterContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+texture = ExtResource("5_g8cfb")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Life Support"]
+layout_mode = 2
+theme = ExtResource("2_8ln6c")
+text = "5000"
+
+[node name="ResourceBottomRow" type="HBoxContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Minerals" type="HBoxContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow/Minerals"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow/Minerals/CenterContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+texture = ExtResource("6_ubi03")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow/Minerals"]
+layout_mode = 2
+theme = ExtResource("2_8ln6c")
+text = "5000"
+
+[node name="Fuel" type="HBoxContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow/Fuel"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow/Fuel/CenterContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+texture = ExtResource("7_oa1uh")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow/Fuel"]
+layout_mode = 2
+theme = ExtResource("2_8ln6c")
+text = "5000"
+
+[node name="Container" type="Container" parent="TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="TopBarBasePanel/TopBarContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.21
+
+[node name="CenterContainer" type="CenterContainer" parent="TopBarBasePanel/TopBarContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="DayLabel" type="Label" parent="TopBarBasePanel/TopBarContainer/MarginContainer2/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_kexu6")
+text = "Day 35"
+
+[node name="MarginContainer3" type="MarginContainer" parent="TopBarBasePanel/TopBarContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lucnj")
+
+[node name="CenterContainer" type="CenterContainer" parent="TopBarBasePanel/TopBarContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBarBasePanel/TopBarContainer/MarginContainer3/CenterContainer"]
+layout_mode = 2
+
+[node name="ResupplyLabel" type="Label" parent="TopBarBasePanel/TopBarContainer/MarginContainer3/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tjlv")
+text = "resupply in: "
+
+[node name="ResupplyCounterLabel" type="Label" parent="TopBarBasePanel/TopBarContainer/MarginContainer3/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5tjlv")
+text = "35"
