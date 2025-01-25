@@ -1,3 +1,36 @@
-[gd_scene format=3 uid="uid://btpv1hsuhea7i"]
+[gd_scene load_steps=5 format=3 uid="uid://btpv1hsuhea7i"]
+
+[ext_resource type="PackedScene" uid="uid://df3n6js61of5m" path="res://Scenes/Common/TopBar/TopBar.tscn" id="1_cuh4q"]
+[ext_resource type="PackedScene" uid="uid://b38d72ge3ntv5" path="res://Scenes/ColonyScreen/ActionsPanels/ActionsPanels.tscn" id="2_lmarq"]
+[ext_resource type="PackedScene" uid="uid://bitgf3ac6vlb5" path="res://Scenes/Common/SwitchScreen/SwitchScreen.tscn" id="3_8p88n"]
+[ext_resource type="PackedScene" uid="uid://b5l1c6e08j4oj" path="res://Scenes/ColonyScreen/MessageIndicator/MessageIndicator.tscn" id="4_lt04b"]
 
 [node name="ColonyScreenMain" type="Node2D"]
+
+[node name="TopBar" parent="." instance=ExtResource("1_cuh4q")]
+metadata/_edit_lock_ = true
+
+[node name="ActionsPanels" parent="." instance=ExtResource("2_lmarq")]
+offset_left = 3.0
+offset_top = 72.0
+offset_right = 3.0
+offset_bottom = 72.0
+metadata/_edit_lock_ = true
+
+[node name="SwitchScreen" parent="." instance=ExtResource("3_8p88n")]
+offset_left = 351.0
+offset_top = 601.0
+offset_right = 351.0
+offset_bottom = 601.0
+metadata/_edit_lock_ = true
+
+[node name="MessageIndicator" parent="." instance=ExtResource("4_lt04b")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1151.0
+offset_top = 110.0
+offset_right = 1151.0
+offset_bottom = 110.0
+grow_horizontal = 1
+grow_vertical = 1
