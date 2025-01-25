@@ -38,8 +38,13 @@ func getTotalUpkeep() -> int:
 	return res
 
 
-func countDomesByType(domeType: Enums.DomeTypeEnum) -> int:
-	return domes.filter(func(dome: Dome): return dome.type.type == domeType).size()
+func countDomesByType(domeType: Enums.DomeTypeEnum, includeBuilding: bool = false) -> int:
+	var filteredDomes = domes.filter(func(dome: Dome): return dome.type.type == domeType).size()
+
+	if !includeBuilding:
+		filteredDomes = filteredDomes.filter(func(dome: Dome): return dome.remainingBuildTime == 0)
+
+	return filteredDomes.size()
 
 
 func randomCollapseDomes(collapseChance: float):
