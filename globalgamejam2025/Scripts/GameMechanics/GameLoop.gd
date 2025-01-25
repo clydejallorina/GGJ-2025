@@ -17,21 +17,46 @@ func pre_tick() -> void:
 	# Typically this would be the "effects", so setting whether certain tiles
 	# are enabled or not would probably fall under here.
 	print("Pre tick, day " + str(Globals.DAY))
-	pass
+	Globals.pre_tick.emit(Globals.DAY)
 
 func post_tick() -> void:
 	# Handle all processes that need to be done once the day (tick) ends
 	# Typically this would be "causes", so stuff like determining whether or not
 	# to start a dust storm would go here, or stuff like currency calculation.
 	print("Post tick, day " + str(Globals.DAY))
-	pass
+	Globals.post_tick.emit(Globals.DAY)
 
 func init_game() -> void:
 	# Game initialization stuff here
 	ticker_node.wait_time = Globals.SECONDS_PER_TICK
 	ticker_node.start()
 	
-	Globals.global_upkeep_multiplier = 1
+	# Multipliers Initialization
+	Globals.global_upkeep_multiplier = 1.0
+	Globals.upkeep_multipliers = {
+		Enums.DomeTypeEnum.HOUSING: 1.0,
+		Enums.DomeTypeEnum.INDUSTRIAL: 1.0,
+		Enums.DomeTypeEnum.MINING: 1.0,
+		Enums.DomeTypeEnum.LIFE_SUPPORT: 1.0,
+		Enums.DomeTypeEnum.LUXURY: 1.0,
+		Enums.DomeTypeEnum.RESEARCH: 1.0,
+		Enums.DomeTypeEnum.SPACE_ELEVATOR: 1.0,
+		Enums.DomeTypeEnum.WORMHOLE: 1.0,
+	}
+	Globals.dome_construction_cost_multiplier = 1.0
+	Globals.dome_construction_time_multiplier = 1.0
+	Globals.accident_chance_multiplier = 1.0
+	Globals.global_income_multiplier = 1.0
+	Globals.income_multipliers = {
+		Enums.DomeTypeEnum.HOUSING: 1.0,
+		Enums.DomeTypeEnum.INDUSTRIAL: 1.0,
+		Enums.DomeTypeEnum.MINING: 1.0,
+		Enums.DomeTypeEnum.LIFE_SUPPORT: 1.0,
+		Enums.DomeTypeEnum.LUXURY: 1.0,
+		Enums.DomeTypeEnum.RESEARCH: 1.0,
+		Enums.DomeTypeEnum.SPACE_ELEVATOR: 1.0,
+		Enums.DomeTypeEnum.WORMHOLE: 1.0,
+	}
 	Globals.funds = 100
 	Globals.life_support = 100
 	Globals.fuel = 100

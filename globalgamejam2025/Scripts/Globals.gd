@@ -1,5 +1,13 @@
 extends Node
 
+# Signals
+# Note: While we can grab the day number directly from this Globals script,
+#       the GameLoop script should be the only one directly interfacing with
+#       this value. The day number has been provided in these
+#       signals for safety and everyone's convenience.
+signal pre_tick(day_number)
+signal post_tick(day_number)
+
 var GRID_SIZE = Vector2(8,8)
 var GRID = []
 var DAY: int = 0
