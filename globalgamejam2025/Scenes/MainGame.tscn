@@ -1,4 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://7j1gcqyfu5h1"]
+[gd_scene load_steps=9 format=4 uid="uid://7j1gcqyfu5h1"]
+[gd_scene load_steps=9 format=4 uid="uid://7j1gcqyfu5h1"]
 
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GameLoop.gd" id="1_v83y0"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/Messaging/Messaging.gd" id="2_6eoon"]
