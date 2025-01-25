@@ -9,3 +9,8 @@ const STARTING_DATE: int = 2084889600
 const SECONDS_PER_TICK: int = 10
 
 # Resources
+var funds: int = 0
+var life_support: int = 0
+var fuel: int = 0
+var minerals: int = 0
+var alloys: int = 0
