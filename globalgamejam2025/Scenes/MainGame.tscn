@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://7j1gcqyfu5h1"]
+[gd_scene load_steps=25 format=3 uid="uid://7j1gcqyfu5h1"]
 
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GameLoop.gd" id="1_v83y0"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/Messaging/Messaging.gd" id="2_6eoon"]
@@ -146,10 +146,7 @@ tile_set = SubResource("TileSet_0al8a")
 tile_set = SubResource("TileSet_vm6sv")
 script = ExtResource("9_3o22j")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="GridMap"]
-
-[node name="MapCamera" type="Camera2D" parent="GridMap/CanvasLayer"]
-position = Vector2(285, 161)
+[node name="MapCamera" type="Camera2D" parent="GridMap"]
 zoom = Vector2(2.25, 2.25)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
@@ -157,6 +154,8 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 script = ExtResource("10_1oqbd")
 
-[node name="TopBar" parent="GridMap/CanvasLayer" instance=ExtResource("12_ftt7d")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TopBar" parent="CanvasLayer" instance=ExtResource("12_ftt7d")]
 
 [connection signal="timeout" from="GameTicker" to="." method="_on_game_ticker_timeout"]
