@@ -58,13 +58,11 @@ func getUpkeep() -> Dictionary:
 	return upkeep
 
 
-func getCollapseChance() -> float:
+func getCollapseChance(baseCollapseChance) -> float:
 	if isCollapsed || canCollapse:
 		return 0
 
-	var collapseChance = type.baseCollapseChance
-	collapseChance *= corp.collapseMult
-	return collapseChance
+	return baseCollapseChance * corp.collapseMult
 
 
 func setStrike(strikeState: bool):
