@@ -1,7 +1,104 @@
-[gd_scene load_steps=3 format=3 uid="uid://7j1gcqyfu5h1"]
+[gd_scene load_steps=16 format=3 uid="uid://7j1gcqyfu5h1"]
 
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GameLoop.gd" id="1_v83y0"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/Messaging/Messaging.gd" id="2_6eoon"]
+[ext_resource type="Script" path="res://Scripts/GameMechanics/GridMap/GridMap.gd" id="3_x3gsr"]
+[ext_resource type="Texture2D" uid="uid://boyy7uybkq465" path="res://Assets/Tilesets/Terrain/mars_tile.png" id="4_knbe6"]
+[ext_resource type="Texture2D" uid="uid://bf8wqldlieciv" path="res://Assets/Tilesets/Terrain/practice iso tiles.png" id="5_nuxp2"]
+[ext_resource type="Texture2D" uid="uid://d2efcmotcd61g" path="res://Assets/Tilesets/Building/building_command_center.png" id="6_vythf"]
+[ext_resource type="Texture2D" uid="uid://bnxn0500e1kn2" path="res://Assets/Tilesets/Building/building_dome.png" id="7_uscja"]
+[ext_resource type="Texture2D" uid="uid://cbfld7mg0yl1c" path="res://Assets/Tilesets/Building/map2.png" id="8_d6a80"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_127y8"]
+texture = ExtResource("4_knbe6")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_minsd"]
+texture = ExtResource("5_nuxp2")
+margins = Vector2i(16, 16)
+separation = Vector2i(16, 16)
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -8)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -8)
+1:1/0 = 0
+1:1/0/texture_origin = Vector2i(0, -8)
+0:1/0 = 0
+0:1/0/texture_origin = Vector2i(0, -8)
+2:1/0 = 0
+2:1/0/texture_origin = Vector2i(0, -8)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -8)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -8)
+3:1/0 = 0
+3:1/0/texture_origin = Vector2i(0, -8)
+4:1/0 = 0
+4:1/0/texture_origin = Vector2i(0, -8)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, -8)
+5:0/0 = 0
+5:0/0/texture_origin = Vector2i(0, -8)
+5:1/0 = 0
+5:1/0/texture_origin = Vector2i(0, -8)
+6:1/0 = 0
+6:1/0/texture_origin = Vector2i(0, -8)
+6:0/0 = 0
+6:0/0/texture_origin = Vector2i(0, -8)
+
+[sub_resource type="TileSet" id="TileSet_0al8a"]
+tile_shape = 1
+tile_layout = 5
+tile_offset_axis = 1
+tile_size = Vector2i(32, 16)
+sources/0 = SubResource("TileSetAtlasSource_127y8")
+sources/1 = SubResource("TileSetAtlasSource_minsd")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0bm6d"]
+texture = ExtResource("6_vythf")
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 24)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xv3to"]
+texture = ExtResource("7_uscja")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2o27f"]
+texture = ExtResource("8_d6a80")
+texture_region_size = Vector2i(32, 32)
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(0, -8)
+1:2/0 = 0
+1:2/0/texture_origin = Vector2i(0, -8)
+2:2/0 = 0
+2:2/0/texture_origin = Vector2i(0, -8)
+3:2/0 = 0
+3:2/0/texture_origin = Vector2i(0, -8)
+4:2/0 = 0
+4:2/0/texture_origin = Vector2i(0, 8)
+5:2/0 = 0
+5:2/0/texture_origin = Vector2i(0, -8)
+6:2/0 = 0
+6:2/0/texture_origin = Vector2i(0, 8)
+7:1/size_in_atlas = Vector2i(1, 2)
+7:1/0 = 0
+7:1/0/texture_origin = Vector2i(0, 24)
+
+[sub_resource type="TileSet" id="TileSet_vm6sv"]
+tile_shape = 1
+tile_layout = 5
+tile_offset_axis = 1
+tile_size = Vector2i(32, 16)
+sources/0 = SubResource("TileSetAtlasSource_0bm6d")
+sources/1 = SubResource("TileSetAtlasSource_xv3to")
+sources/3 = SubResource("TileSetAtlasSource_2o27f")
 
 [node name="MainGame" type="Node2D"]
 script = ExtResource("1_v83y0")
@@ -10,5 +107,15 @@ script = ExtResource("1_v83y0")
 
 [node name="MessagingHandler" type="Node" parent="."]
 script = ExtResource("2_6eoon")
+
+[node name="GridMap" type="Node2D" parent="."]
+position = Vector2(500, 250)
+script = ExtResource("3_x3gsr")
+
+[node name="Terrain" type="TileMapLayer" parent="GridMap"]
+tile_set = SubResource("TileSet_0al8a")
+
+[node name="Building" type="TileMapLayer" parent="GridMap"]
+tile_set = SubResource("TileSet_vm6sv")
 
 [connection signal="timeout" from="GameTicker" to="." method="_on_game_ticker_timeout"]
