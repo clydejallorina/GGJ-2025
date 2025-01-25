@@ -12,5 +12,5 @@ func play_sound(sound: Resource):
 	self.play()
 
 func _on_audio_stream_end():
-	print("Audio complete!")
+	#print("Audio complete!")
 	queue_free()

@@ -49,7 +49,7 @@ func getIncome() -> Dictionary:
 	var income = type.baseIncome
 	for key in income.keys():
 		income[key] *= corp.incomeMult
-		income[key] *= Globals.income_multipliers[self.type]
+		income[key] *= Globals.income_multipliers[type.type]
 		income[key] *= Globals.global_income_multiplier
 	return income
 
@@ -61,7 +61,7 @@ func getUpkeep() -> Dictionary:
 	var upkeep = type.baseUpkeep
 	for key in upkeep.keys():
 		upkeep[key] *= corp.upkeepMult 
-		upkeep[key] *= Globals.upkeep_multipliers[self.type]
+		upkeep[key] *= Globals.upkeep_multipliers[type.type]
 		upkeep[key] *= Globals.global_upkeep_multiplier
 	return upkeep
 
