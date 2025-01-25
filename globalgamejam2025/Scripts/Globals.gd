@@ -1,5 +1,7 @@
 extends Node
 
+const Message = preload("res://Scripts/GameMechanics/Messaging/Message.gd")
+
 var GRID = []
 var DAY: int = 0
 # Starting date for the game in unix time (2036-01-26)
@@ -14,3 +16,8 @@ var life_support: int = 0
 var fuel: int = 0
 var minerals: int = 0
 var alloys: int = 0
+
+# Use res://Scripts/GameMechanics/Messaging/Messaging.gd to interact with this
+# There should already be a MessagingHandler node in the MainGame scene
+# that deals with this, so try to use that if possible.
+var message_queue: Array[Message] = []
