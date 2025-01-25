@@ -1,4 +1,4 @@
-extends Node	# Should this be a resource instead?
+extends Node  # Should this be a resource instead?
 
 class_name DomeCorporation
 
@@ -19,7 +19,8 @@ class_name DomeCorporation
 # incomeMult will be multiplied to income, which will then be floored
 # strikeMult will be multiplied to chance of strike. Result should be between 0f and 1f
 var domeCorpStats = {
-	Enums.DomeCorpsEnum.CORP1: {
+	Enums.DomeCorpsEnum.CORP1:
+	{
 		"name": "Xpace",
 		"buildTimeMod": 0,
 		"collapseMult": 1.0,
@@ -28,7 +29,8 @@ var domeCorpStats = {
 		"upkeepMult": 1.0,
 		"strikeMult": 1.0,
 	},
-	Enums.DomeCorpsEnum.CORP2: {
+	Enums.DomeCorpsEnum.CORP2:
+	{
 		"name": "Qiancheng Macrotechnologies",
 		"buildTimeMod": 0,
 		"collapseMult": 1.0,
@@ -37,7 +39,8 @@ var domeCorpStats = {
 		"upkeepMult": 1.0,
 		"strikeMult": 1.0,
 	},
-	Enums.DomeCorpsEnum.CORP3: {
+	Enums.DomeCorpsEnum.CORP3:
+	{
 		"name": "Sentinel Inc",
 		"buildTimeMod": 0,
 		"collapseMult": 1.0,
@@ -46,7 +49,8 @@ var domeCorpStats = {
 		"upkeepMult": 1.0,
 		"strikeMult": 1.0,
 	},
-	Enums.DomeCorpsEnum.CORP4: {
+	Enums.DomeCorpsEnum.CORP4:
+	{
 		"name": "Sierra Initiative",
 		"buildTimeMod": 0,
 		"collapseMult": 1.0,
@@ -55,7 +59,8 @@ var domeCorpStats = {
 		"upkeepMult": 1.0,
 		"strikeMult": 1.0,
 	},
-	Enums.DomeCorpsEnum.CORP5: {
+	Enums.DomeCorpsEnum.CORP5:
+	{
 		"name": "Horizon Collective",
 		"buildTimeMod": 0,
 		"collapseMult": 1.0,
@@ -65,6 +70,7 @@ var domeCorpStats = {
 		"strikeMult": 1.0,
 	},
 }
+
 
 # Class Constructor
 func _init(initCorp: Enums.DomeCorpsEnum):

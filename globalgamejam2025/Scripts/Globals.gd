@@ -1,7 +1,5 @@
 extends Node
 
-const Message = preload("res://Scripts/GameMechanics/Messaging/Message.gd")
-
 var GRID_SIZE = Vector2(8,8)
 var GRID = []
 var DAY: int = 0
