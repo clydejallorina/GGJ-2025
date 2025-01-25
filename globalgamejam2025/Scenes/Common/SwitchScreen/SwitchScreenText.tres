@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d250t1ku8sp1m"]
+
+[ext_resource type="FontFile" uid="uid://c6dnygysi35pd" path="res://Assets/Fonts/QuinqueFive.otf" id="1_uhbtv"]
+
+[resource]
+Label/fonts/font = ExtResource("1_uhbtv")
