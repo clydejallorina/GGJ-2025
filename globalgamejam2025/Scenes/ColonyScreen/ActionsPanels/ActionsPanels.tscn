@@ -1,0 +1,133 @@
+[gd_scene load_steps=4 format=3 uid="uid://b38d72ge3ntv5"]
+
+[ext_resource type="Theme" uid="uid://ccq14ephep1dp" path="res://Scenes/ColonyScreen/ActionsPanels/ActionsPanelsLabels.tres" id="1_dgue8"]
+[ext_resource type="Texture2D" uid="uid://bnxn0500e1kn2" path="res://Assets/Tilesets/Building/building_dome.png" id="2_bjgye"]
+[ext_resource type="Texture2D" uid="uid://dxjtyvvhoye4i" path="res://Assets/Tilesets/Building/building_life_support_dome.png" id="3_rm28k"]
+
+[node name="ActionsPanels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 250.0
+offset_bottom = 284.0
+
+[node name="BuildDomePanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BuildDomePanel"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_dgue8")
+text = "Build Dome
+"
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.79
+
+[node name="CenterContainer2" type="VBoxContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="DomeTopRow" type="HBoxContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2/DomeTopRow"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_bjgye")
+stretch_mode = 5
+
+[node name="Dome2" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2/DomeTopRow"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_rm28k")
+stretch_mode = 5
+
+[node name="Dome3" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2/DomeTopRow"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_rm28k")
+stretch_mode = 5
+
+[node name="DomeBotRow" type="HBoxContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2/DomeBotRow"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_bjgye")
+stretch_mode = 5
+
+[node name="Dome2" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2/DomeBotRow"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_rm28k")
+stretch_mode = 5
+
+[node name="Dome3" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2/DomeBotRow"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_rm28k")
+stretch_mode = 5
+
+[node name="RepairPanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/RepairPanel"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/RepairPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/RepairPanel/MarginContainer/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_dgue8")
+text = "Repair Dome"
+
+[node name="LawsPanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/LawsPanel"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/LawsPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/LawsPanel/MarginContainer/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_dgue8")
+text = "Petition law"
