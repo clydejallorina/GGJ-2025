@@ -104,6 +104,7 @@ sources/3 = SubResource("TileSetAtlasSource_2o27f")
 script = ExtResource("1_v83y0")
 
 [node name="GameTicker" type="Timer" parent="."]
+process_callback = 0
 
 [node name="MessagingHandler" type="Node" parent="."]
 script = ExtResource("2_6eoon")

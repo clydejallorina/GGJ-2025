@@ -1,7 +1,5 @@
 extends Node
 
-const Message = preload("res://Scripts/GameMechanics/Messaging/Message.gd")
-
 var GRID = []
 var DAY: int = 0
 # Starting date for the game in unix time (2036-01-26)
