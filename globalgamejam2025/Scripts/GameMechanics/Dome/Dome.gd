@@ -37,13 +37,14 @@ func _init(initType: Enums.DomeTypeEnum, initCorp: Enums.DomeCorpsEnum, initPos:
 
 # Methods
 func getBuildTime() -> int:
-	return min(1, domeStats.baseBuildTime + corpStats.buildTimeMod) * Globals.dome_construction_time_multiplier
+	return floori(min(1, domeStats.baseBuildTime + corpStats.buildTimeMod) * Globals.dome_construction_time_multiplier)
 
 func getCost() -> Dictionary:
 	var cost = domeStats.baseCost
 	for key in cost.keys():
 		cost[key] *= corpStats.costMult
-	return cost * Globals.dome_construction_cost_multiplier
+		cost[key] *= Globals.dome_construction_cost_multiplier
+	return cost
 
 func getIncome() -> Dictionary:
 	if isCollapsed || isStrike || remainingBuildTime > 0:
@@ -88,3 +89,14 @@ func buildTick():
 func setStatus(newStatus: Enums.DomeStatusEnum):
 	currentStatus = newStatus
 	# Maybe add additional functionality based on status (e.g. on strikes, on collapse)
+	match currentStatus:
+		Enums.DomeStatusEnum.IDLE:
+			setStrike(false)
+			setCollapse(false)
+		Enums.DomeStatusEnum.COLLAPSED:
+			setStrike(false)
+			setCollapse(true)
+		Enums.DomeStatusEnum.STRIKE:
+			setStrike(true)
+			setCollapse(false)
+	

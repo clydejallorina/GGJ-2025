@@ -31,6 +31,9 @@ var audited_alloys: int = 0
 var audit_fudge_chance: float = 0.0
 var audit_fudge_chance_increase: float = 0.025
 
+var marsquake_chance: float = 0.0
+var marsquake_chance_increase: float = 0.005
+
 # Resource Multipliers (typically manipulated by Laws)
 var global_upkeep_multiplier: float = 1.0
 var upkeep_multipliers: Dictionary = {
@@ -62,6 +65,7 @@ var income_multipliers: Dictionary = {
 # There should already be a MessagingHandler node in the MainGame scene
 # that deals with this, so try to use that if possible.
 var message_queue: Array[Message] = []
+var unread_messages: int = 0
 
 # Laws
 var active_laws: Array[Enums.LawsEnum] = []

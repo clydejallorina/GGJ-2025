@@ -1,11 +1,22 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://d1ymea65ux7bl"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://d1ymea65ux7bl"]
 
 [ext_resource type="FontFile" uid="uid://ckhguh60jpwtf" path="res://Assets/Fonts/AsepriteFont.ttf" id="1_netb8"]
+[ext_resource type="Texture2D" uid="uid://dehey377lby1j" path="res://Assets/UI/inboxchoice.png" id="2_8y6i3"]
 
 [sub_resource type="FontVariation" id="FontVariation_5t7bf"]
 base_font = ExtResource("1_netb8")
 spacing_top = -9
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_snkgs"]
+texture = ExtResource("2_8y6i3")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+region_rect = Rect2(6, 6, 246, 246)
+
 [resource]
-Button/font_sizes/font_size = 40
+Button/colors/font_color = Color(0.160156, 0.160156, 0.160156, 1)
+Button/font_sizes/font_size = 36
 Button/fonts/font = SubResource("FontVariation_5t7bf")
+Button/styles/normal = SubResource("StyleBoxTexture_snkgs")

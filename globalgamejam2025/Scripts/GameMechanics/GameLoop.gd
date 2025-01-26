@@ -29,6 +29,8 @@ func pre_tick() -> void:
 	# Typically this would be the "effects", so setting whether certain tiles
 	# are enabled or not would probably fall under here.
 	print("Pre tick, day " + str(Globals.DAY))
+	var random = RandomNumberGenerator.new()
+	random.randomize()
 	# Check if we need to resupply
 	if Globals.resupply_time <= 0:
 		print("Resupplying!")
@@ -45,8 +47,6 @@ func pre_tick() -> void:
 		Globals.audited_alloys = Globals.alloys
 		if Globals.audit_fudge_chance > 0:
 			# Fudge the numbers a little depending on the chance
-			var random = RandomNumberGenerator.new()
-			random.randomize()
 			Globals.audited_funds += random.randi_range(-100 * Globals.audit_fudge_chance, 100 * Globals.audit_fudge_chance)
 			Globals.audited_life_support += random.randi_range(-100 * Globals.audit_fudge_chance, 100 * Globals.audit_fudge_chance)
 			Globals.audited_fuel += random.randi_range(-100 * Globals.audit_fudge_chance, 100 * Globals.audit_fudge_chance)
@@ -66,7 +66,15 @@ func post_tick() -> void:
 	# Typically this would be "causes", so stuff like determining whether or not
 	# to start a dust storm would go here, or stuff like currency calculation.
 	print("Post tick, day " + str(Globals.DAY))
+	var random = RandomNumberGenerator.new()
+	random.randomize()
 	Globals.resupply_time -= 1
+	Globals.marsquake_chance += Globals.marsquake_chance_increase
+	# Check if marsquake needs to happen
+	if random.randf() <= Globals.marsquake_chance:
+		# Send marsquake event
+		Signals.screen_shake.emit(1)
+		Globals.marsquake_chance = 0.0 # Reset chance
 	Signals.post_tick.emit(Globals.DAY)
 
 func init_game() -> void:
