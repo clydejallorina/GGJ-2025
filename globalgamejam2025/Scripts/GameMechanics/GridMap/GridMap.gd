@@ -3,6 +3,7 @@ extends Node2D
 @onready var lower_terrain = $LowerTerrain
 @onready var terrain = $Terrain
 @onready var building = $Building
+@onready var state_overlay = $"Building/StateOverlay"
 
 var terrain_base_mars_source_ids: Dictionary = {
 	"Terrain1": 0,
@@ -10,7 +11,7 @@ var terrain_base_mars_source_ids: Dictionary = {
 }
 
 var lower_terrain_base_mars_source_id = 0
-var lower_terrain_base_mars:Dictionary = {
+var lower_terrain_base_mars: Dictionary = {
 	"Terrain1": Vector2i(4,0),
 	"Terrain2": Vector2i(5,0),
 	"Terrain3": Vector2i(5,1),

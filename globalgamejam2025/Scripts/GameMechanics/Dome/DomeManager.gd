@@ -1,44 +1,41 @@
 extends Node
 
-class_name DomeManager
-
-# TODO: Strike logic
-
 # Properties
-@export var domes: Array[Dome] = []
-@export var randomCollapseChance: float = 0  # TODO: Should be nonzero at Act 2
+#@export var domes: Array[Dome] = [] # LET'S USE THE GRID AS THE ARRAY FOR NOW SINCE WE'RE LIMITED IN TIME
+@export var random_collapse_chance: float = 0  # TODO: Should be nonzero at Act 2
 
 var rng: RandomNumberGenerator
-
 
 # Functions
 func _init():
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
+	
+func flatten_grid() -> Array:
+	var domes = []
+	for row in Globals.GRID:
+		for cell in row:
+			if cell:
+				domes.append(cell)
 
+	return domes
 
-func createDome(domeType: Enums.DomeTypeEnum, corp: Enums.DomeCorpsEnum, initPos: Vector2i) -> Dome:
-	var newDome = Dome.new(domeType, corp, initPos)
-	domes.append(newDome)
-	# TODO: Hook up to grid system to create a Node that Dome attaches to (?)
-	return newDome
-
-
-func getTotalIncome() -> int:
+func get_total_income() -> int:
 	var res = 0
+	var domes = flatten_grid()
 	for dome in domes:
 		res += dome.getIncome()
 	return res
 
-
-func getTotalUpkeep() -> int:
+func get_total_upkeep() -> int:
 	var res = 0
+	var domes = flatten_grid()
 	for dome in domes:
 		res += dome.getUpkeep()
 	return res
 
-
-func countDomesByType(domeType: Enums.DomeTypeEnum, includeBuilding: bool = false) -> int:
+func count_domes_by_type(domeType: Enums.DomeTypeEnum, includeBuilding: bool = false) -> int:
+	var domes = flatten_grid()
 	var filteredDomes = domes.filter(func(dome: Dome): return dome.type == domeType).size()
 
 	if !includeBuilding:
@@ -46,8 +43,8 @@ func countDomesByType(domeType: Enums.DomeTypeEnum, includeBuilding: bool = fals
 
 	return filteredDomes.size()
 
-
-func randomCollapseDomes(collapseChance: float):
+func random_collapse_domes(collapseChance: float):
+	var domes = flatten_grid()
 	for dome in domes:
 		if rng.randfn() < dome.getCollapseChance(collapseChance):
 			dome.setCollapse(true)
@@ -56,5 +53,5 @@ func randomCollapseDomes(collapseChance: float):
 func tick():
 	# Run through everything that should happen during a tick
 	# Random Collapse
-	if randomCollapseChance != 0:
-		randomCollapseDomes(randomCollapseChance)
+	if random_collapse_chance != 0:
+		random_collapse_domes(random_collapse_chance)

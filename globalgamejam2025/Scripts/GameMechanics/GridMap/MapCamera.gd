@@ -12,7 +12,7 @@ var noise = FastNoiseLite.new() #The source of random values.
 var noise_y = 0 #Value used to move through the noise
 
 var trauma = 0.0 #Current shake strength
-var trauma_pwr = 3 #Trauma exponent. Use [2,3]
+var trauma_power = 3 #Trauma exponent. Use [2,3]
 
 # Define camera boundaries
 var camera_bounds = Rect2(Vector2(0, 0), Vector2(
@@ -88,8 +88,8 @@ func _process(delta: float) -> void:
 		lerp(rotation,0.0,1)
 				
 func shake() -> void: 
-	var amt = pow(trauma, trauma_pwr)
+	var amount = pow(trauma, trauma_power)
 	noise_y += 1
-	rotation = max_roll * amt * noise.get_noise_2d(0, noise_y)
-	offset.x = max_offset.x * amt * noise.get_noise_2d(1000, noise_y)
-	offset.y = max_offset.y * amt * noise.get_noise_2d(2000, noise_y)
+	rotation = max_roll * amount * noise.get_noise_2d(0, noise_y)
+	offset.x = max_offset.x * amount * noise.get_noise_2d(1000, noise_y)
+	offset.y = max_offset.y * amount * noise.get_noise_2d(2000, noise_y)

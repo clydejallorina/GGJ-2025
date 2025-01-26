@@ -19,6 +19,9 @@ var fuel: int = 0
 var minerals: int = 0
 var alloys: int = 0
 
+# Upkeep
+var upkeep: int = 0
+
 # Resource Multipliers (typically manipulated by Laws)
 var global_upkeep_multiplier: float = 1.0
 var upkeep_multipliers: Dictionary = {
@@ -53,3 +56,6 @@ var message_queue: Array[Message] = []
 
 # Laws
 var active_laws: Array[Enums.LawsEnum] = []
+
+# Random Collapse
+var random_collapse_chance: float = 0

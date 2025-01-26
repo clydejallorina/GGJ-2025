@@ -14,10 +14,18 @@ const BUILDING_TO_TILESET_SOURCE_MAP: Dictionary = {
 	Enums.DomeTypeEnum.INDUSTRIAL: 3,
 	Enums.DomeTypeEnum.MINING: 4,
 	Enums.DomeTypeEnum.LIFE_SUPPORT: 2,
-	Enums.DomeTypeEnum.LUXURY: null,
+	Enums.DomeTypeEnum.LUXURY: 6,
 	Enums.DomeTypeEnum.RESEARCH: 5,
 	Enums.DomeTypeEnum.SPACE_ELEVATOR: null,
 	Enums.DomeTypeEnum.WORMHOLE: null,
+}
+
+const STATE_OVERLAY_TO_TILESET_ATLAS_COORD: Dictionary = {
+	Enums.DomeStatusEnum.IDLE: Vector2i(-1,-1),
+	Enums.DomeStatusEnum.PRODUCING: Vector2i(0,5),
+	Enums.DomeStatusEnum.STRIKE: Vector2i(6,0),
+	Enums.DomeStatusEnum.COLLAPSED: Vector2i(6,1),
+	Enums.DomeStatusEnum.BUILDING: Vector2i(7,2)
 }
 
 const TWO_BY_TWO_BUILDINGS: Array[Enums.DomeTypeEnum] = [

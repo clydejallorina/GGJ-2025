@@ -1,11 +1,13 @@
 extends TileMapLayer
 
+@onready var states_overlay = $StateOverlay
 var ding_sound = preload("res://Assets/Audio/pop-39222.mp3")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Signals.build_dome.connect(create_building)
 	Signals.destroy_dome.connect(delete_building)
+	Signals.change_dome_state.connect(change_building_state)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -16,6 +18,11 @@ func _input(event: InputEvent) -> void:
 			var audio_utils = AudioUtils.duplicate()
 			self.add_child(audio_utils)
 			audio_utils.play_sound(ding_sound)
+			
+			# TEST CHANGE OF STATE
+			var status = Enums.DomeStatusEnum.values().pick_random()
+			Signals.change_dome_state.emit(cell_coordinates, status)
+	
 		print(cell_coordinates)
 
 # CONNECT THIS TO AN EMITTER, PREFERRABLY ON BUILD EVENT
@@ -44,6 +51,13 @@ func delete_building(coordinate: Vector2i = Vector2i(-1,-1)) -> void:
 	
 	erase_cell(coordinate)
 	Globals.GRID[coordinate.x][coordinate.y] = null
+	
+func change_building_state(coordinate: Vector2i, status: Enums.DomeStatusEnum) -> void:
+	if not Globals.GRID[coordinate.x][coordinate.y]:
+		return
+	
+	Globals.GRID[coordinate.x][coordinate.y].setStatus(status)
+	states_overlay.set_cell(coordinate, 0, Constants.STATE_OVERLAY_TO_TILESET_ATLAS_COORD[status])
 	
 func choose_location_with_buildings() -> Vector2i:
 	var cells_with_buildings = []

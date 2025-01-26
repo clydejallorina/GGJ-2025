@@ -2,14 +2,10 @@ extends Node
 
 class_name Dome
 
-# Enums
-enum DomeStatus {PRODUCING, CLICKABLE, STRIKE, COLLAPSED, BUILDING}
-
-
 # Properties
 @export var type: Enums.DomeTypeEnum
 @export var corp: Enums.DomeCorpsEnum
-@export var currentStatus: DomeStatus
+@export var currentStatus: Enums.DomeStatusEnum
 @export var position: Vector2i
 
 @export var canClick: bool
@@ -71,21 +67,17 @@ func getUpkeep() -> Dictionary:
 		upkeep[key] *= Globals.global_upkeep_multiplier
 	return upkeep
 
-
 func getCollapseChance(baseCollapseChance) -> float:
 	if isCollapsed || canCollapse || remainingBuildTime > 0:
 		return 0
 
 	return baseCollapseChance * corpStats.collapseMult
 
-
 func setStrike(strikeState: bool):
 	isStrike = strikeState
 
-
 func setCollapse(collapseState: bool):
 	isCollapsed = collapseState
-
 
 func buildTick():
 	if remainingBuildTime == 0:
@@ -93,6 +85,6 @@ func buildTick():
 
 	remainingBuildTime -= 1
 
-func setStatus(newStatus: DomeStatus):
+func setStatus(newStatus: Enums.DomeStatusEnum):
 	currentStatus = newStatus
 	# Maybe add additional functionality based on status (e.g. on strikes, on collapse)
