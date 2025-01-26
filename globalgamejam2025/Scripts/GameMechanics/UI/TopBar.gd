@@ -6,6 +6,7 @@ extends Node
 @onready var life_support_label = $"TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceTopRow/Life Support/LifeSupLabel"
 @onready var resources_label = $TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow/Minerals/ResLabel
 @onready var fuel_label = $TopBarBasePanel/TopBarContainer/ResourceMarginContainer/ResourceCenterContainer/VBoxContainer/ResourceBottomRow/Fuel/FuelLabel
+@onready var resupply_label = $TopBarBasePanel/TopBarContainer/MarginContainer3/CenterContainer/HBoxContainer/ResupplyCounterLabel
 
 func _ready() -> void:
 	pass
@@ -18,3 +19,4 @@ func _physics_process(_delta: float) -> void:
 	life_support_label.text = str(Globals.life_support)
 	resources_label.text = str(Globals.minerals)
 	fuel_label.text = str(Globals.fuel)
+	resupply_label.text = str(Globals.resupply_time)

@@ -29,6 +29,13 @@ func pre_tick() -> void:
 	# Typically this would be the "effects", so setting whether certain tiles
 	# are enabled or not would probably fall under here.
 	print("Pre tick, day " + str(Globals.DAY))
+	# Check if we need to resupply
+	if Globals.resupply_time <= 0:
+		print("Resupplying!")
+		Globals.resupply_time = Constants.RESUPPLY_TIMES[Globals.act - 1]
+		# TODO: Configurable resupplies
+		Globals.funds += 100
+		Globals.alloys += 100
 	Signals.pre_tick.emit(Globals.DAY)
 
 func post_tick() -> void:
@@ -36,6 +43,7 @@ func post_tick() -> void:
 	# Typically this would be "causes", so stuff like determining whether or not
 	# to start a dust storm would go here, or stuff like currency calculation.
 	print("Post tick, day " + str(Globals.DAY))
+	Globals.resupply_time -= 1
 	Signals.post_tick.emit(Globals.DAY)
 
 func init_game() -> void:
@@ -82,6 +90,9 @@ func init_game() -> void:
 	Globals.fuel = 100
 	Globals.minerals = 0
 	Globals.alloys = 100
+	
+	Globals.act = 1
+	Globals.resupply_time = Constants.RESUPPLY_TIMES[Globals.act - 1]
 
 func _on_game_ticker_timeout() -> void:
 	# Tick the game every time the timer times out

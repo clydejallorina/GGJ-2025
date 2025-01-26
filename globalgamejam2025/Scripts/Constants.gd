@@ -151,3 +151,5 @@ var DOME_CORP_STATS = {
 		"strikeMult": 1.0,
 	},
 }
+
+const RESUPPLY_TIMES: Array[int] = [21, 30, 30]

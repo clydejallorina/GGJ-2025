@@ -9,6 +9,9 @@ const STARTING_DATE: int = 2084889600
 # Maybe we can make this a const if we don't plan on making this variable
 const SECONDS_PER_TICK: int = 10
 
+var act: int = 1
+var resupply_time: int = 21
+
 # Resources
 var funds: int = 0
 var life_support: int = 0
