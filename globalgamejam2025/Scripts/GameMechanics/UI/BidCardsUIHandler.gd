@@ -7,17 +7,17 @@ extends Control
 @onready var corp_logo_container = $CorpLogoContainer
 
 
-func set_everything(label: String, name: String, description: String, logo: String):
-	set_cost_label(label)
+func set_everything(cost_label: String, name: String, description: String, logo: String):
+	set_cost_label(cost_label)
 	set_corp_name(name)
 	set_description(description)
 	set_logo(logo)
 	
 func set_cost_label(inp_label) -> void:
-	cost_label = inp_label.toString();
+	cost_label.text = inp_label;
 
 func set_description(inp_description: String) -> void:
-	description = inp_description
+	description.text = inp_description
 	
 func set_corp_name(inp_corp_name: String) -> void:
 	corp_name.text = inp_corp_name
