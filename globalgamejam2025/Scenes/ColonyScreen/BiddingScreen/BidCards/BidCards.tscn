@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctm45wg2jry17"]
+[gd_scene load_steps=13 format=3 uid="uid://ctm45wg2jry17"]
 
 [ext_resource type="Script" path="res://Scripts/GameMechanics/UI/BidCardsUIHandler.gd" id="1_00ggs"]
 [ext_resource type="Texture2D" uid="uid://c66msxmfjqmbv" path="res://Assets/Icons/funds.png" id="1_a1vfu"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bkayasimh5l1x" path="res://Assets/Logos/corp1.png" id="2_lomyu"]
 [ext_resource type="Texture2D" uid="uid://b81ugljktxryj" path="res://Assets/Logos/corp2.png" id="3_101hd"]
 [ext_resource type="Texture2D" uid="uid://btwjv2xv4yd72" path="res://Assets/Logos/corp3.png" id="4_gc5ne"]
+[ext_resource type="FontFile" uid="uid://c6dnygysi35pd" path="res://Assets/Fonts/QuinqueFive.otf" id="4_ra7y3"]
 [ext_resource type="Texture2D" uid="uid://cm3upwb65rxpu" path="res://Assets/Logos/corp4.png" id="5_qmra5"]
 [ext_resource type="Texture2D" uid="uid://c1xc8s2jt4jp8" path="res://Assets/Logos/corp5.png" id="6_ljewu"]
 
@@ -88,7 +89,17 @@ texture = ExtResource("1_a1vfu")
 expand_mode = 3
 
 [node name="HireButtonContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+offset_left = 48.0
+offset_top = 313.0
+offset_right = 230.0
+offset_bottom = 364.0
+
+[node name="HireButton" type="Button" parent="HireButtonContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ra7y3")
+text = "Hire"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0

@@ -1,0 +1,43 @@
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://d4efkysmse4g5"]
+
+[ext_resource type="Script" path="res://Scripts/GameMechanics/Bidders/BidderClass.gd" id="1_12tfr"]
+[ext_resource type="Script" path="res://Scripts/GameMechanics/Bidders/BiddersResource.gd" id="2_22ylc"]
+
+[sub_resource type="Resource" id="Resource_5iw47"]
+script = ExtResource("1_12tfr")
+name = "Xpace"
+logo_id = "corp1"
+description = "Higher accident chance"
+cost = 25
+
+[sub_resource type="Resource" id="Resource_ha2in"]
+script = ExtResource("1_12tfr")
+name = "Qiancheng Macrotechnologies"
+logo_id = "corp2"
+description = "Increases Dome income"
+cost = 100
+
+[sub_resource type="Resource" id="Resource_7bggr"]
+script = ExtResource("1_12tfr")
+name = "Sentinel Inc."
+logo_id = "corp3"
+description = "Decreased build time"
+cost = 50
+
+[sub_resource type="Resource" id="Resource_yjxn0"]
+script = ExtResource("1_12tfr")
+name = "Sierra Initiative"
+logo_id = "corp4"
+description = "Returns some resources after building"
+cost = 70
+
+[sub_resource type="Resource" id="Resource_i20oy"]
+script = ExtResource("1_12tfr")
+name = "Horizon Collective"
+logo_id = "corp5"
+description = "Domes aren't affected by strikes. Increases upkeep"
+cost = 60
+
+[resource]
+script = ExtResource("2_22ylc")
+bidders = Array[ExtResource("1_12tfr")]([SubResource("Resource_5iw47"), SubResource("Resource_ha2in"), SubResource("Resource_7bggr"), SubResource("Resource_yjxn0"), SubResource("Resource_i20oy")])
