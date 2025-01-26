@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://d1ymea65ux7bl"]
+
+[ext_resource type="FontFile" uid="uid://ckhguh60jpwtf" path="res://Assets/Fonts/AsepriteFont.ttf" id="1_netb8"]
+
+[sub_resource type="FontVariation" id="FontVariation_5t7bf"]
+base_font = ExtResource("1_netb8")
+spacing_top = -9
+
+[resource]
+Button/font_sizes/font_size = 40
+Button/fonts/font = SubResource("FontVariation_5t7bf")
