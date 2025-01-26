@@ -193,7 +193,7 @@ process_callback = 0
 script = ExtResource("2_6eoon")
 
 [node name="GridMap" type="Node2D" parent="."]
-position = Vector2(285, 161)
+position = Vector2(635, 373)
 script = ExtResource("3_x3gsr")
 
 [node name="LowerTerrain" type="TileMapLayer" parent="GridMap"]

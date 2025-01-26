@@ -20,8 +20,10 @@ var camera_bounds = Rect2(Vector2(0, 0), Vector2(
 	cell_size_in_px * Globals.GRID_SIZE[1],
 ))  # (x, y, width, height)
 
+
+var zoom_speed = Vector2(0.05,0.05)
 var min_zoom = 0.5
-var max_zoom = 2.0
+var max_zoom = 3.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -62,6 +64,17 @@ func _process(delta: float) -> void:
 		position.y = clamp(position.y, -camera_bounds.size.y, camera_bounds.size.y)
 
 		last_mouse_position = get_global_mouse_position()
+		
+	# For zooming
+	if Input.is_action_just_released("wheel_up"):
+		zoom += zoom_speed
+	if Input.is_action_just_released("wheel_down"):
+		zoom -= zoom_speed
+		
+	zoom = Vector2(
+		clampf(zoom.x, min_zoom, max_zoom),
+		clampf(zoom.y, min_zoom, max_zoom),
+	)
 	
 	# Deals with screen shake (for catastrophic events)
 	if trauma:

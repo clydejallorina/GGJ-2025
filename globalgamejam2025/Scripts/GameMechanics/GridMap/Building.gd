@@ -8,7 +8,7 @@ func _ready() -> void:
 	Signals.destroy_dome.connect(delete_building)
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var click_global_position = get_global_mouse_position()
 		var click_local_poistion = to_local(click_global_position)
 		var cell_coordinates = local_to_map(click_local_poistion)
