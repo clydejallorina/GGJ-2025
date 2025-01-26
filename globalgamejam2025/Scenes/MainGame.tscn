@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://7j1gcqyfu5h1"]
+[gd_scene load_steps=43 format=3 uid="uid://7j1gcqyfu5h1"]
 
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GameLoop.gd" id="1_v83y0"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/Messaging/Messaging.gd" id="2_6eoon"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://2e7bqqjseo36" path="res://Assets/Tilesets/Terrain/mars_tile_2.png" id="5_07epo"]
 [ext_resource type="Shader" path="res://Shaders/ParallaxGlow.gdshader" id="5_lix01"]
 [ext_resource type="Texture2D" uid="uid://bf8wqldlieciv" path="res://Assets/Tilesets/Terrain/practice iso tiles.png" id="5_nuxp2"]
+[ext_resource type="PackedScene" uid="uid://btpv1hsuhea7i" path="res://Scenes/ColonyScreen/ColonyScreenMain.tscn" id="5_svgd2"]
 [ext_resource type="Texture2D" uid="uid://d2efcmotcd61g" path="res://Assets/Tilesets/Building/building_command_center.png" id="6_vythf"]
 [ext_resource type="Texture2D" uid="uid://du8yal3rmfxub" path="res://Assets/Background/background.png" id="6_ya15d"]
 [ext_resource type="Shader" path="res://Shaders/Stars.gdshader" id="7_nu2f1"]
@@ -20,7 +21,6 @@
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GridMap/MapCamera.gd" id="10_1oqbd"]
 [ext_resource type="Texture2D" uid="uid://bgi6movy7trkh" path="res://Assets/Tilesets/Building/building_mining_dome.png" id="10_gbq6n"]
 [ext_resource type="Texture2D" uid="uid://c67sft0cnewri" path="res://Assets/Tilesets/Building/building_research_dome.png" id="11_bnniw"]
-[ext_resource type="PackedScene" uid="uid://df3n6js61of5m" path="res://Scenes/Common/TopBar/TopBar.tscn" id="12_ftt7d"]
 [ext_resource type="Texture2D" uid="uid://b7s15547nadlg" path="res://Assets/Tilesets/Building/building_luxury_dome.png" id="15_d7ep6"]
 [ext_resource type="Texture2D" uid="uid://dgne08mhoqlx2" path="res://Assets/Tilesets/State/icons.png" id="17_wjan8"]
 
@@ -366,7 +366,7 @@ script = ExtResource("4_ppbs1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TopBar" parent="CanvasLayer" instance=ExtResource("12_ftt7d")]
+[node name="ColonyScreenMain" parent="CanvasLayer" instance=ExtResource("5_svgd2")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
