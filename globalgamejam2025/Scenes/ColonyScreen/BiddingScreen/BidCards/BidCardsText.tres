@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://rile854dl4w6"]
+
+[ext_resource type="FontFile" uid="uid://ckhguh60jpwtf" path="res://Assets/Fonts/AsepriteFont.ttf" id="1_lid4e"]
+
+[sub_resource type="FontVariation" id="FontVariation_07u13"]
+base_font = ExtResource("1_lid4e")
+spacing_top = -7
+
+[resource]
+Label/font_sizes/font_size = 30
+Label/fonts/font = SubResource("FontVariation_07u13")
+Label/styles/normal = null
