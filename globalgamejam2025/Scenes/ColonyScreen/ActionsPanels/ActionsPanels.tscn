@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://b38d72ge3ntv5"]
+[gd_scene load_steps=11 format=3 uid="uid://b38d72ge3ntv5"]
 
 [ext_resource type="Theme" uid="uid://ccq14ephep1dp" path="res://Scenes/ColonyScreen/ActionsPanels/ActionsPanelsLabels.tres" id="1_dgue8"]
 [ext_resource type="Theme" uid="uid://dgbu83fwukjwh" path="res://Scenes/ColonyScreen/Themes/darkpanel.tres" id="1_mim4c"]
 [ext_resource type="Texture2D" uid="uid://bnxn0500e1kn2" path="res://Assets/Tilesets/Building/building_dome.png" id="2_bjgye"]
+[ext_resource type="Texture2D" uid="uid://cbj6x2nin06eg" path="res://Assets/Tilesets/Building/building_life_support_dome.png" id="3_rm28k"]
 [ext_resource type="Theme" uid="uid://dm3n0y7273udx" path="res://Scenes/ColonyScreen/Themes/DarkPanel2.tres" id="5_74p6w"]
+[ext_resource type="Script" path="res://Scripts/GameMechanics/UI/DomeCreateHandler.gd" id="5_xulwl"]
+[ext_resource type="Texture2D" uid="uid://dgl1ox0ya8qy1" path="res://Assets/Tilesets/Building/building_industrial_dome.png" id="7_h02o2"]
+[ext_resource type="Texture2D" uid="uid://bgi6movy7trkh" path="res://Assets/Tilesets/Building/building_mining_dome.png" id="8_4jlyg"]
+[ext_resource type="Texture2D" uid="uid://c67sft0cnewri" path="res://Assets/Tilesets/Building/building_research_dome.png" id="9_gs07k"]
+[ext_resource type="Texture2D" uid="uid://b7s15547nadlg" path="res://Assets/Tilesets/Building/building_luxury_dome.png" id="10_nswwt"]
 
 [node name="ActionsPanels" type="Control"]
 layout_mode = 3
@@ -70,34 +76,39 @@ theme_override_constants/separation = 4
 layout_mode = 2
 theme = ExtResource("5_74p6w")
 
-[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow/PanelContainer"]
+[node name="HousingDome" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow/PanelContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("2_bjgye")
 stretch_mode = 5
+script = ExtResource("5_xulwl")
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow"]
 layout_mode = 2
 theme = ExtResource("5_74p6w")
 
-[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow/PanelContainer2"]
+[node name="LifeSupportDome" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow/PanelContainer2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("2_bjgye")
+texture_normal = ExtResource("3_rm28k")
 stretch_mode = 5
+script = ExtResource("5_xulwl")
+dome_type = 3
 
 [node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow"]
 layout_mode = 2
 theme = ExtResource("5_74p6w")
 
-[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow/PanelContainer3"]
+[node name="IndustrialDome" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow/PanelContainer3"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("2_bjgye")
+texture_normal = ExtResource("7_h02o2")
 stretch_mode = 5
+script = ExtResource("5_xulwl")
+dome_type = 1
 
 [node name="DomeTopRow2" type="HBoxContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2"]
 layout_mode = 2
@@ -108,34 +119,40 @@ theme_override_constants/separation = 4
 layout_mode = 2
 theme = ExtResource("5_74p6w")
 
-[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2/PanelContainer"]
+[node name="MiningDome" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2/PanelContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("2_bjgye")
+texture_normal = ExtResource("8_4jlyg")
 stretch_mode = 5
+script = ExtResource("5_xulwl")
+dome_type = 2
 
 [node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2"]
 layout_mode = 2
 theme = ExtResource("5_74p6w")
 
-[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2/PanelContainer2"]
+[node name="ResearchDome" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2/PanelContainer2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("2_bjgye")
+texture_normal = ExtResource("9_gs07k")
 stretch_mode = 5
+script = ExtResource("5_xulwl")
+dome_type = 5
 
 [node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2"]
 layout_mode = 2
 theme = ExtResource("5_74p6w")
 
-[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2/PanelContainer3"]
+[node name="LuxuryDome" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2/PanelContainer3"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("2_bjgye")
+texture_normal = ExtResource("10_nswwt")
 stretch_mode = 5
+script = ExtResource("5_xulwl")
+dome_type = 4
 
 [node name="RepairPanel" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2

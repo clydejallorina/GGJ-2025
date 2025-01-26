@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bitgf3ac6vlb5"]
 
-[ext_resource type="Theme" uid="uid://b6jjejpsm65ab" path="res://Scenes/Common/SwitchScreen/SwitchScreenDark.tres" id="1_fubee"]
+[ext_resource type="Theme" uid="uid://icin6aj2458u" path="res://Scenes/Common/SwitchScreen/SwitchScreenDark.tres" id="1_fubee"]
 [ext_resource type="Theme" uid="uid://d250t1ku8sp1m" path="res://Scenes/Common/SwitchScreen/SwitchScreenText.tres" id="1_n300q"]
 
 [node name="SwitchScreen" type="Control"]

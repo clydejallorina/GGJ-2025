@@ -14,7 +14,7 @@ func _input(event: InputEvent) -> void:
 		var click_global_position = get_global_mouse_position()
 		var click_local_poistion = to_local(click_global_position)
 		var cell_coordinates = local_to_map(click_local_poistion)
-		if validate_location_by_coordinate(cell_coordinates):
+		if validate_location_by_coordinate(cell_coordinates) and Globals.GRID[cell_coordinates.x][cell_coordinates.y]:
 			var audio_utils = AudioUtils.duplicate()
 			self.add_child(audio_utils)
 			audio_utils.play_sound(ding_sound)
