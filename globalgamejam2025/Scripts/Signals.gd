@@ -11,6 +11,10 @@ signal post_tick(day_number: int)
 signal build_dome(building_type: Enums.DomeTypeEnum, corp_type: Enums.DomeCorpsEnum)
 signal destroy_dome(coordinate: Vector2i)
 
+# Show bidder screen
+signal show_bidder(building_type: Enums.DomeTypeEnum, corp_type: Enums.DomeCorpsEnum)
+signal hide_bidder()
+
 signal change_dome_state(coordinate: Vector2i, status: Enums.DomeStatusEnum)
 signal collect_dome_income(coordinate: Vector2i)
 

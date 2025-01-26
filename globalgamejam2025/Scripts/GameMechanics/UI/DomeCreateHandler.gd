@@ -7,7 +7,7 @@ func _ready() -> void:
 	self.button_down.connect(emit_build_dome)
 	
 func emit_build_dome():
-	Signals.build_dome.emit(dome_type, Enums.DomeCorpsEnum.CORP1)
+	Signals.show_bidder.emit(dome_type, Enums.DomeCorpsEnum.CORP1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
