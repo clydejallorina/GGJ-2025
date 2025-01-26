@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh2ebvq03up6"]
+
+[ext_resource type="Texture2D" uid="uid://b81ugljktxryj" path="res://Assets/Logos/corp2.png" id="1_b8k3k"]
+[ext_resource type="Theme" uid="uid://bsmu3hwjpb60v" path="res://Scenes/MessageScreen/Themes/InboxSidebarText.tres" id="2_ufq7v"]
+
+[node name="Container" type="PanelContainer"]
+custom_minimum_size = Vector2(220, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1060.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("1_b8k3k")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 8
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2/CenterContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer2/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ufq7v")
+theme_override_font_sizes/font_size = 36
+text = "United Nations"
+text_overrun_behavior = 3
+
+[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer2/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ufq7v")
+theme_override_font_sizes/font_size = 26
+text = "Good Sol, Director"
+text_overrun_behavior = 3

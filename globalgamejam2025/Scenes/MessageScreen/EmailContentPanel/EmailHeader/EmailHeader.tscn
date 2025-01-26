@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://be7jghe8oxplq"]
+
+[ext_resource type="Texture2D" uid="uid://bkayasimh5l1x" path="res://Assets/Logos/corp1.png" id="1_0uas5"]
+[ext_resource type="Theme" uid="uid://yeiji61tyblo" path="res://Scenes/MessageScreen/Themes/InboxHeaderText.tres" id="2_d2nd0"]
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 660.0
+offset_bottom = 94.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="MessageIcon" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_0uas5")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FromContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="From" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer/FromContainer"]
+layout_mode = 2
+theme = ExtResource("2_d2nd0")
+text = "From:"
+
+[node name="MessageFrom" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer/FromContainer"]
+layout_mode = 2
+theme = ExtResource("2_d2nd0")
+text = "United Nations"
+
+[node name="ToContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="From" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer/ToContainer"]
+layout_mode = 2
+theme = ExtResource("2_d2nd0")
+text = "To:"
+
+[node name="MessageTo" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer/ToContainer"]
+layout_mode = 2
+theme = ExtResource("2_d2nd0")
+text = "United Nations"
+
+[node name="EmailHeader" type="Control" parent="."]
+layout_mode = 2

@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cqfgiekmf0i23"]
+
+[ext_resource type="FontFile" uid="uid://ckhguh60jpwtf" path="res://Assets/Fonts/AsepriteFont.ttf" id="1_lcw5p"]
+
+[sub_resource type="FontVariation" id="FontVariation_tilf5"]
+base_font = ExtResource("1_lcw5p")
+spacing_top = -9
+
+[resource]
+Label/font_sizes/font_size = 64
+Label/fonts/font = SubResource("FontVariation_tilf5")

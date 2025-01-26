@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://ccq14ephep1dp" path="res://Scenes/ColonyScreen/ActionsPanels/ActionsPanelsLabels.tres" id="1_dgue8"]
 [ext_resource type="Texture2D" uid="uid://bnxn0500e1kn2" path="res://Assets/Tilesets/Building/building_dome.png" id="2_bjgye"]
-[ext_resource type="Texture2D" uid="uid://dxjtyvvhoye4i" path="res://Assets/Tilesets/Building/building_life_support_dome.png" id="3_rm28k"]
+[ext_resource type="Texture2D" uid="uid://cbj6x2nin06eg" path="res://Assets/Tilesets/Building/building_life_support_dome.png" id="3_rm28k"]
 
 [node name="ActionsPanels" type="Control"]
 layout_mode = 3
