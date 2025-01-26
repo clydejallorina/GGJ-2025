@@ -1,0 +1,63 @@
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://cpqdp821iysye"]
+
+[ext_resource type="Script" path="res://Scripts/GameMechanics/Messaging/Message.gd" id="1_dtrh1"]
+[ext_resource type="Script" path="res://Scripts/Messages/MessageResource.gd" id="2_xenbs"]
+
+[sub_resource type="Resource" id="Resource_q1dg0"]
+script = ExtResource("1_dtrh1")
+from = "Xpace"
+from_email = "@xpa.ce"
+logo_id = "corp1"
+subject = "We wish to bid"
+body = "Hey Director.\\nLet’s get right to it. The way I see it, Mars doesn’t need another set of pampered suits using up precious oxygen — it needs builders, survivors, innovators, partners who understand what it’s like to fight for survival, scrape together solutions, and pioneer under pressure. Partners like Xpace.\\nXpace has built decentralized energy grids in failed states, established hydroponic farms in wastelands, and hacked together autonomous water systems in deserts that governments wrote off decades ago, all at costs that the masses can afford. Mars? It’s the next frontier, and we’re ready to do what others won’t: work for the people, not above them.\\nIf you’re looking for corporate loyalty points or a slick sales pitch, go ask for an MBA in a penthouse in Manhattan. But if you want results that don’t crumble when the pressure hits, Xpace is your team.\\n\\nYour move, Director.\\n\\nCheers,\\nRiley Greaves\\nFounder, Xpace"
+action1 = Callable()
+action2 = Callable()
+post_read_action = Callable()
+
+[sub_resource type="Resource" id="Resource_tg4cq"]
+script = ExtResource("1_dtrh1")
+from = "Qiancheng Macrotechnologies"
+from_email = "@qiancheng.tech"
+logo_id = "corp2"
+subject = "We wish to bid"
+body = "Good day Director.\\nWe are Qiancheng Macrotechnologies, worldwide leader in scalable industrial systems, orbital logistics, and autonomous resource extraction. Our operational framework has proven indispensable across the harshest environments Earth has to offer, from Antarctic outposts to submarine energy-harvesting units.\\nMars is no different. Sentinel offers drone swarms capable of precision mineral extraction, high-efficiency habitat assembly systems, and redundant supply chain protocols designed to endure interplanetary delays.\\nWe believe Mars’ future depends on pragmatic execution and disciplined logistics. Unlike others, we do not talk, we work. Trust Sentinel, and the colony’s growth is not a question but a guarantee.\\n\\nWe await your directive.\\n\\nSincerely,\\nDr. Dong Zhi\\nCEO, Qiancheng Macrotechnologies"
+action1 = Callable()
+action2 = Callable()
+post_read_action = Callable()
+
+[sub_resource type="Resource" id="Resource_ovnhc"]
+script = ExtResource("1_dtrh1")
+from = "Sentinel Inc"
+from_email = "@sentinel.corp"
+logo_id = "corp3"
+subject = "We wish to bid"
+body = "Hello Director.\\nSentinel Inc. delivers outcomes quickly and efficiently. Our record speaks for itself: Three-time Artemis Awardee for rapid construction of orbital refinement systems, accelerated deployment of lunar resource extraction facilities, and consistent earlier-than-project deliveries of high-stakes projects both on land and on orbit.\\nOn Mars, time is precious, even more so than Earth. Sentinel is committed to ensuring that every second counts – scalable bubble dome technology deployable in days, AI-driven logistics for optimized resource extraction and allocation, and standardized construct templates to eliminate delays.\\nWe do things simply: reliability done quickly. Looking forward to discussing how our pipeline can benefit Mars.\\n\\nBest regards,\\nJahangir Shad\\nVP of Operations, Sentinel Inc."
+action1 = Callable()
+action2 = Callable()
+post_read_action = Callable()
+
+[sub_resource type="Resource" id="Resource_mm5jj"]
+script = ExtResource("1_dtrh1")
+from = "Sierra Initiative"
+from_email = "@sierra.org"
+logo_id = "corp4"
+subject = "Greetings, Director\\nThe red sands of Mars are more than just lumps of iron—they are the foundation for humanity’s future in the stars. The Sierra Initiative is here to help build that foundation.\\nSierra remains on the bleeding edge of advanced terraforming concepts, biotechnological research, and space-adaptive infrastructure. From algae bioreactors to 3D-printed habs, Horizon Initiatives specializes in adapting inhospitable environments into spaces where people can thrive holistically with their environment.\\nAt Horizon, Mars is not just a planet to be conquered. Mars is humanity’s next home. Partner with Horizon, and we’ll make Mars not only livable but desirable.\\nWe look forward to discussing humanity’s possibilities on the Red Planet.\\n\\nWarm regards,\\nEmily Lark\\nExecutive Vice President, Sierra Initiative"
+body = ""
+action1 = Callable()
+action2 = Callable()
+post_read_action = Callable()
+
+[sub_resource type="Resource" id="Resource_wrrr3"]
+script = ExtResource("1_dtrh1")
+from = "Horizon Collective"
+from_email = "@horizon.you"
+logo_id = "corp5"
+subject = "We wish to bid"
+body = "Dear Director,\\nWe both understand that Mars is not merely a research experiment, it is a fledgling society looking for an opportunity to thrive. Horizon believes that any society relies upon its people: their well-being is the society’s well-being.\\nHorizon specializes in people-centric infrastructure – modular housing adapting to individual, family and community needs, strong mental health frameworks for long periods of isolation, cutting-edge urban design that fosters connection and play even in the remote sands of Mars.\\nWe have more than 30 years of experience working with communities from Tokyo to Mumbai, co-developing and planting new life in once-dreary urban landscapes. Now we wish to use this expertise to create a vibrant and inclusive colony that paves the path forward for a better society.\\nWe’d love to discuss your mission further.\\n\\nKindly,\\nAmara Shen\\nDirector for Community Development, Horizon Collective"
+action1 = Callable()
+action2 = Callable()
+post_read_action = Callable()
+
+[resource]
+script = ExtResource("2_xenbs")
+messages = Array[ExtResource("1_dtrh1")]([SubResource("Resource_q1dg0"), SubResource("Resource_tg4cq"), SubResource("Resource_ovnhc"), SubResource("Resource_mm5jj"), SubResource("Resource_wrrr3")])
