@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://be7jghe8oxplq"]
+[gd_scene load_steps=4 format=3 uid="uid://be7jghe8oxplq"]
 
 [ext_resource type="Texture2D" uid="uid://bkayasimh5l1x" path="res://Assets/Logos/corp1.png" id="1_0uas5"]
+[ext_resource type="Theme" uid="uid://b8n43o6m44h3v" path="res://Scenes/MessageScreen/Themes/PanelLightOne.tres" id="1_o5lmg"]
 [ext_resource type="Theme" uid="uid://yeiji61tyblo" path="res://Scenes/MessageScreen/Themes/InboxHeaderText.tres" id="2_d2nd0"]
 
 [node name="PanelContainer" type="PanelContainer"]
 offset_right = 660.0
-offset_bottom = 94.0
+offset_bottom = 84.0
+theme = ExtResource("1_o5lmg")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -47,6 +49,11 @@ layout_mode = 2
 theme = ExtResource("2_d2nd0")
 text = "United Nations"
 
+[node name="EmailFrom" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer/FromContainer"]
+layout_mode = 2
+theme = ExtResource("2_d2nd0")
+text = "(@unim-command.un)"
+
 [node name="ToContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 
@@ -60,5 +67,7 @@ layout_mode = 2
 theme = ExtResource("2_d2nd0")
 text = "United Nations"
 
-[node name="EmailHeader" type="Control" parent="."]
+[node name="EmailFrom" type="Label" parent="HBoxContainer/MarginContainer2/VBoxContainer/ToContainer"]
 layout_mode = 2
+theme = ExtResource("2_d2nd0")
+text = "(@director.marsdev.un)"

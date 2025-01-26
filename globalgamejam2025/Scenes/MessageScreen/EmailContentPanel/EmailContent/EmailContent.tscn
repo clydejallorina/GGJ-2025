@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3kwlaysrnmdj"]
 
 [ext_resource type="Theme" uid="uid://df0radur636wg" path="res://Scenes/MessageScreen/Themes/InboxContentText.tres" id="1_3uo0m"]
-[ext_resource type="Theme" uid="uid://dcwlp8mwdudwa" path="res://Scenes/MessageScreen/Themes/LightPanel.tres" id="1_agw1c"]
+[ext_resource type="Theme" uid="uid://b8n43o6m44h3v" path="res://Scenes/MessageScreen/Themes/PanelLightOne.tres" id="1_ij1cx"]
 
 [node name="PanelContainer" type="PanelContainer"]
 custom_minimum_size = Vector2(660, 260)
 offset_right = 660.0
-offset_bottom = 257.0
-theme = ExtResource("1_agw1c")
+offset_bottom = 277.0
+theme = ExtResource("1_ij1cx")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

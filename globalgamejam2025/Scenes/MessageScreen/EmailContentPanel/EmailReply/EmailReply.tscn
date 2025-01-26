@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://2pb8a17jo2nt"]
+[gd_scene load_steps=4 format=3 uid="uid://2pb8a17jo2nt"]
 
+[ext_resource type="Theme" uid="uid://b8n43o6m44h3v" path="res://Scenes/MessageScreen/Themes/PanelLightOne.tres" id="1_31n5a"]
 [ext_resource type="Theme" uid="uid://d1ymea65ux7bl" path="res://Scenes/MessageScreen/Themes/InboxChoiceButton.tres" id="1_802em"]
 [ext_resource type="Theme" uid="uid://cqfgiekmf0i23" path="res://Scenes/MessageScreen/Themes/InboxChoiceDefault.tres" id="2_f8kbq"]
 
 [node name="Panel" type="PanelContainer"]
-custom_minimum_size = Vector2(660, 215)
+custom_minimum_size = Vector2(660, 180)
 offset_right = 660.0
-offset_bottom = 215.0
+offset_bottom = 180.0
+theme = ExtResource("1_31n5a")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
