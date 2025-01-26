@@ -52,6 +52,8 @@ func random_collapse_domes(collapseChance: float):
 
 func marsquake(strength: float):
 	var domes = flatten_grid()
+	if domes.size() == 0:
+		return
 	for _i in range(strength):
 		var i = rng.randi_range(0, domes.size() - 1)
 		if domes[i].type == Enums.DomeTypeEnum.CONTROL_CENTER:
