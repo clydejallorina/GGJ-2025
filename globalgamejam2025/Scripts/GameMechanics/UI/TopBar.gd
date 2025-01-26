@@ -13,10 +13,9 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	day_label.text = "Day %d" % Globals.DAY
-	# TODO: Fudge these numbers up for the audit!
-	funds_label.text = str(Globals.funds)
-	alloys_label.text = str(Globals.alloys)
-	life_support_label.text = str(Globals.life_support)
-	resources_label.text = str(Globals.minerals)
-	fuel_label.text = str(Globals.fuel)
+	funds_label.text = str(Globals.audited_funds)
+	alloys_label.text = str(Globals.audited_alloys)
+	life_support_label.text = str(Globals.audited_life_support)
+	resources_label.text = str(Globals.audited_minerals)
+	fuel_label.text = str(Globals.audited_fuel)
 	resupply_label.text = str(Globals.resupply_time)

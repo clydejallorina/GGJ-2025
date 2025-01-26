@@ -7,7 +7,7 @@ var DAY: int = 0
 const STARTING_DATE: int = 2084889600
 
 # Maybe we can make this a const if we don't plan on making this variable
-const SECONDS_PER_TICK: int = 10
+const SECONDS_PER_TICK: int = 1
 
 var act: int = 1
 var resupply_time: int = 21
@@ -20,7 +20,16 @@ var minerals: int = 0
 var alloys: int = 0
 
 # Upkeep
-var upkeep: int = 0
+var total_upkeep: int = 0
+
+# Audits
+var audited_funds: int = 0
+var audited_life_support: int = 0
+var audited_fuel: int = 0
+var audited_minerals: int = 0
+var audited_alloys: int = 0
+var audit_fudge_chance: float = 0.0
+var audit_fudge_chance_increase: float = 0.025
 
 # Resource Multipliers (typically manipulated by Laws)
 var global_upkeep_multiplier: float = 1.0
