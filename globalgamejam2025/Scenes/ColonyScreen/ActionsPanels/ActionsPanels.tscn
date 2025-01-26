@@ -2,14 +2,26 @@
 
 [ext_resource type="Theme" uid="uid://ccq14ephep1dp" path="res://Scenes/ColonyScreen/ActionsPanels/ActionsPanelsLabels.tres" id="1_dgue8"]
 [ext_resource type="Theme" uid="uid://dgbu83fwukjwh" path="res://Scenes/ColonyScreen/Themes/darkpanel.tres" id="1_mim4c"]
-[ext_resource type="Texture2D" uid="uid://bnxn0500e1kn2" path="res://Assets/Tilesets/Building/building_dome.png" id="2_bjgye"]
-[ext_resource type="Texture2D" uid="uid://cbj6x2nin06eg" path="res://Assets/Tilesets/Building/building_life_support_dome.png" id="3_rm28k"]
 [ext_resource type="Theme" uid="uid://dm3n0y7273udx" path="res://Scenes/ColonyScreen/Themes/DarkPanel2.tres" id="5_74p6w"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/UI/DomeCreateHandler.gd" id="5_xulwl"]
-[ext_resource type="Texture2D" uid="uid://dgl1ox0ya8qy1" path="res://Assets/Tilesets/Building/building_industrial_dome.png" id="7_h02o2"]
-[ext_resource type="Texture2D" uid="uid://bgi6movy7trkh" path="res://Assets/Tilesets/Building/building_mining_dome.png" id="8_4jlyg"]
-[ext_resource type="Texture2D" uid="uid://c67sft0cnewri" path="res://Assets/Tilesets/Building/building_research_dome.png" id="9_gs07k"]
-[ext_resource type="Texture2D" uid="uid://b7s15547nadlg" path="res://Assets/Tilesets/Building/building_luxury_dome.png" id="10_nswwt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vxptw"]
+load_path = "res://.godot/imported/building_dome.png-3f14fe5b308a8a4eb90968d4fe41e0ba.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xw7on"]
+load_path = "res://.godot/imported/building_life_support_dome.png-83356f122f3ceeb2743b5496d9d261a0.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_37qkh"]
+load_path = "res://.godot/imported/building_industrial_dome.png-c62d5192e5cb53f0b7780186d2858a26.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_exf2w"]
+load_path = "res://.godot/imported/building_mining_dome.png-21ce6c4e94c035a642d8f5a76b0a871d.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_agtp2"]
+load_path = "res://.godot/imported/building_research_dome.png-679f989cdb3a44178e2aa54579bd07a0.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ou7d4"]
+load_path = "res://.godot/imported/building_luxury_dome.png-6d6401b6bb228060a7d355afed1813c4.ctex"
 
 [node name="ActionsPanels" type="Control"]
 layout_mode = 3
@@ -80,7 +92,7 @@ theme = ExtResource("5_74p6w")
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("2_bjgye")
+texture_normal = SubResource("CompressedTexture2D_vxptw")
 stretch_mode = 5
 script = ExtResource("5_xulwl")
 
@@ -92,7 +104,7 @@ theme = ExtResource("5_74p6w")
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("3_rm28k")
+texture_normal = SubResource("CompressedTexture2D_xw7on")
 stretch_mode = 5
 script = ExtResource("5_xulwl")
 dome_type = 3
@@ -105,7 +117,7 @@ theme = ExtResource("5_74p6w")
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("7_h02o2")
+texture_normal = SubResource("CompressedTexture2D_37qkh")
 stretch_mode = 5
 script = ExtResource("5_xulwl")
 dome_type = 1
@@ -123,7 +135,7 @@ theme = ExtResource("5_74p6w")
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("8_4jlyg")
+texture_normal = SubResource("CompressedTexture2D_exf2w")
 stretch_mode = 5
 script = ExtResource("5_xulwl")
 dome_type = 2
@@ -136,7 +148,7 @@ theme = ExtResource("5_74p6w")
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("9_gs07k")
+texture_normal = SubResource("CompressedTexture2D_agtp2")
 stretch_mode = 5
 script = ExtResource("5_xulwl")
 dome_type = 5
@@ -149,7 +161,7 @@ theme = ExtResource("5_74p6w")
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("10_nswwt")
+texture_normal = SubResource("CompressedTexture2D_ou7d4")
 stretch_mode = 5
 script = ExtResource("5_xulwl")
 dome_type = 4
