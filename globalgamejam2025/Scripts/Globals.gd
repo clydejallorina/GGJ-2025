@@ -1,7 +1,8 @@
 extends Node
 
 var GRID_SIZE = Vector2i(8,8)
-var GRID = Array(range(GRID_SIZE[0])).map(func (i): return Array(range(GRID_SIZE[1])).map(func (j): return null)) # A bit hacky, just to generate grid at start of the game
+# A bit hacky, just to generate grid at start of the game
+var GRID = Array(range(GRID_SIZE[0])).map(func (i): return Array(range(GRID_SIZE[1])).map(func (j): return null))
 var DAY: int = 0
 # Starting date for the game in unix time (2036-01-26)
 const STARTING_DATE: int = 2084889600
@@ -31,6 +32,7 @@ var audited_alloys: int = 0
 var audit_fudge_chance: float = 0.0
 var audit_fudge_chance_increase: float = 0.025
 
+# Marsquakes
 var marsquake_chance: float = 0.0
 var marsquake_chance_increase: float = 0.005
 
@@ -45,6 +47,7 @@ var upkeep_multipliers: Dictionary = {
 	Enums.DomeTypeEnum.RESEARCH: 1.0,
 	Enums.DomeTypeEnum.SPACE_ELEVATOR: 1.0,
 	Enums.DomeTypeEnum.WORMHOLE: 1.0,
+	Enums.DomeTypeEnum.CONTROL_CENTER: 1.0,
 }
 var dome_construction_cost_multiplier: float = 1.0
 var dome_construction_time_multiplier: float = 1.0
@@ -59,6 +62,7 @@ var income_multipliers: Dictionary = {
 	Enums.DomeTypeEnum.RESEARCH: 1.0,
 	Enums.DomeTypeEnum.SPACE_ELEVATOR: 1.0,
 	Enums.DomeTypeEnum.WORMHOLE: 1.0,
+	Enums.DomeTypeEnum.CONTROL_CENTER: 1.0,
 }
 
 # Use res://Scripts/GameMechanics/Messaging/Messaging.gd to interact with this
@@ -69,6 +73,3 @@ var unread_messages: int = 0
 
 # Laws
 var active_laws: Array[Enums.LawsEnum] = []
-
-# Random Collapse
-var random_collapse_chance: float = 0

@@ -2,8 +2,6 @@ extends Node
 
 # Properties
 #@export var domes: Array[Dome] = [] # LET'S USE THE GRID AS THE ARRAY FOR NOW SINCE WE'RE LIMITED IN TIME
-@export var random_collapse_chance: float = 0  # TODO: Should be nonzero at Act 2
-
 var rng: RandomNumberGenerator
 
 # Functions
@@ -11,7 +9,9 @@ func _init():
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 	Signals.screen_shake.connect(marsquake)
-	
+	Signals.post_tick.connect(get_total_income)
+	Signals.post_tick.connect(get_total_upkeep)
+
 func flatten_grid() -> Array:
 	var domes = []
 	for row in Globals.GRID:
@@ -21,19 +21,42 @@ func flatten_grid() -> Array:
 
 	return domes
 
-func get_total_income() -> int:
-	var res = 0
-	var domes = flatten_grid()
-	for dome in domes:
-		res += dome.getIncome()
-	return res
+func update_global_resource(resources: Dictionary, operation: Enums.ResourceUpdateOperationEnum) -> void:
+	for key in resources.keys():
+		var value = resources[key]
 
-func get_total_upkeep() -> int:
-	var res = 0
+		match operation:
+			Enums.ResourceUpdateOperationEnum.SUBTRACT:
+				value = -value
+
+		match key:
+			"funds": Globals.funds += value
+			"life_support": Globals.life_support += value
+			"fuel": Globals.fuel += value
+			"minerals": Globals.minerals += value
+			"alloys": Globals.alloys += value
+
+func combine_resources(resources: Dictionary, incoming: Dictionary) -> void:
+	for key in resources.keys():
+		resources[key] += incoming[key]
+
+func get_total_income(day: int) -> void:
+	var resources = Constants.EMPTY_RESOURCE_BATCH.duplicate(true)
 	var domes = flatten_grid()
-	for dome in domes:
-		res += dome.getUpkeep()
-	return res
+	for dome:Dome in domes:
+		if dome.shouldGetDomeResources(day):
+			combine_resources(resources,dome.getIncome())
+	
+	update_global_resource(resources, Enums.ResourceUpdateOperationEnum.ADD)
+
+func get_total_upkeep(day: int) -> void:
+	var resources = Constants.EMPTY_RESOURCE_BATCH.duplicate(true)
+	var domes = flatten_grid()
+	for dome:Dome in domes:
+		if dome.shouldGetDomeResources(day):
+			combine_resources(resources,dome.getUpkeep())
+
+	update_global_resource(resources, Enums.ResourceUpdateOperationEnum.SUBTRACT)
 
 func count_domes_by_type(domeType: Enums.DomeTypeEnum, includeBuilding: bool = false) -> int:
 	var domes = flatten_grid()
@@ -43,28 +66,26 @@ func count_domes_by_type(domeType: Enums.DomeTypeEnum, includeBuilding: bool = f
 		filteredDomes = filteredDomes.filter(func(dome: Dome): return dome.remainingBuildTime == 0)
 
 	return filteredDomes.size()
-
-func random_collapse_domes(collapseChance: float):
+	
+func get_domes_by_status(status: Enums.DomeStatusEnum) -> Array:
 	var domes = flatten_grid()
-	for dome in domes:
-		if rng.randfn() < dome.getCollapseChance(collapseChance):
-			dome.setStatus(Enums.DomeStatusEnum.COLLAPSED)
+	return domes.filter(func(dome): return dome.status == status)
 
 func marsquake(strength: float):
 	var domes = flatten_grid()
-	if domes.size() == 0:
+	var non_collapsed_domes = domes.filter(func(dome): return dome not in get_domes_by_status(Enums.DomeStatusEnum.COLLAPSED))
+	
+	if non_collapsed_domes.size() == 0:
 		return
-	for _i in range(strength):
-		var i = rng.randi_range(0, domes.size() - 1)
-		if domes[i].type == Enums.DomeTypeEnum.CONTROL_CENTER:
-			# Let's not hit the control center with quakes
-			# That would be too annoying for the player lol
-			continue
-		domes[i].setStatus(Enums.DomeStatusEnum.COLLAPSED)
 
+	# Minor bug, can pick the same dome
+	var dome_count = clampi(
+		randi_range(1,non_collapsed_domes.size()),
+		1, Constants.MAX_COLLAPSED_DOME_PER_QUAKE
+	)
 
-func tick():
-	# Run through everything that should happen during a tick
-	# Random Collapse
-	if random_collapse_chance != 0:
-		random_collapse_domes(random_collapse_chance)
+	for i in range(dome_count):
+		Signals.change_dome_state.emit(
+			domes.pick_random().position,
+			Enums.DomeStatusEnum.COLLAPSED,
+		)

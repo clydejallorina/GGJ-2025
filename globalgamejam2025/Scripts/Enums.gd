@@ -6,6 +6,8 @@ enum DomeTypeEnum {
 enum DomeCorpsEnum { CORP1, CORP2, CORP3, CORP4, CORP5 }
 enum DomeStatusEnum { IDLE, PRODUCING, STRIKE, COLLAPSED, BUILDING }
 
+enum ResourceUpdateOperationEnum { ADD, SUBTRACT }
+
 # TODO: Add more laws here
 enum LawsEnum {
 	RATIONING,

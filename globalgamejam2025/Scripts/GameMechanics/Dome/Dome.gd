@@ -5,7 +5,7 @@ class_name Dome
 # Properties
 @export var type: Enums.DomeTypeEnum
 @export var corp: Enums.DomeCorpsEnum
-@export var currentStatus: Enums.DomeStatusEnum
+@export var status: Enums.DomeStatusEnum
 @export var position: Vector2i
 
 @export var canClick: bool
@@ -19,14 +19,13 @@ class_name Dome
 @export var domeStats: Dictionary
 @export var corpStats: Dictionary
 
-
 # Class Constructor
 func _init(initType: Enums.DomeTypeEnum, initCorp: Enums.DomeCorpsEnum, initPos: Vector2i):
 	type = initType
 	corp = initCorp
 	position = initPos
-	domeStats = Constants.DOME_TYPE_STATS[initType]
-	corpStats = Constants.DOME_CORP_STATS[initCorp]
+	domeStats = Constants.DOME_TYPE_STATS[initType].duplicate(true)
+	corpStats = Constants.DOME_CORP_STATS[initCorp].duplicate(true)
 
 	# Set defaults
 	remainingBuildTime = getBuildTime()
@@ -48,37 +47,38 @@ func getCost() -> Dictionary:
 
 func getIncome() -> Dictionary:
 	if isCollapsed || isStrike || remainingBuildTime > 0:
-		return Constants.EMPTY_RESOURCE_BATCH
-
+		return Constants.EMPTY_RESOURCE_BATCH.duplicate(true)
+	
+	print(Globals.income_multipliers)
 	var income = domeStats.baseIncome
 	for key in income.keys():
-		income[key] *= corpStats.incomeMult
+		income[key] *= corpStats.incomeMult[key]
 		income[key] *= Globals.income_multipliers[type]
 		income[key] *= Globals.global_income_multiplier
 	return income
 
 func getUpkeep() -> Dictionary:
 	if isCollapsed || remainingBuildTime > 0:
-		return Constants.EMPTY_RESOURCE_BATCH
+		return Constants.EMPTY_RESOURCE_BATCH.duplicate(true)
 
 	var upkeep = domeStats.baseUpkeep
 	for key in upkeep.keys():
-		upkeep[key] *= corpStats.upkeepMult 
+		upkeep[key] *= corpStats.upkeepMult[key]
 		upkeep[key] *= Globals.upkeep_multipliers[type]
 		upkeep[key] *= Globals.global_upkeep_multiplier
-	return upkeep
-
-func getCollapseChance(baseCollapseChance) -> float:
-	if isCollapsed || canCollapse || remainingBuildTime > 0:
-		return 0
-
-	return baseCollapseChance * corpStats.collapseMult
+	return upkeep.duplicate(true)
 
 func setStrike(strikeState: bool):
 	isStrike = strikeState
 
 func setCollapse(collapseState: bool):
 	isCollapsed = collapseState
+	
+func getbaseResourceDays() -> int:
+	return domeStats.baseResourceCollectDays
+	
+func shouldGetDomeResources(day: int) -> bool:
+	return (day % domeStats.baseResourceCollectDays) == 0
 
 func buildTick():
 	if remainingBuildTime == 0:
@@ -87,9 +87,9 @@ func buildTick():
 	remainingBuildTime -= 1
 
 func setStatus(newStatus: Enums.DomeStatusEnum):
-	currentStatus = newStatus
+	status = newStatus
 	# Maybe add additional functionality based on status (e.g. on strikes, on collapse)
-	match currentStatus:
+	match status:
 		Enums.DomeStatusEnum.IDLE:
 			setStrike(false)
 			setCollapse(false)

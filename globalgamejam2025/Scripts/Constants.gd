@@ -36,74 +36,83 @@ var DOME_TYPE_STATS = {
 	Enums.DomeTypeEnum.HOUSING:
 	{
 		"domeName": "Housing",
-		"baseCost": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseUpkeep": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseIncome": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseBuildTime": 2
+		"baseCost": {"funds": 30, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseUpkeep": {"funds": 10, "life_support": 10, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseIncome": {"funds": 100, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseBuildTime": 2,
+		"baseResourceCollectDays": 5,
 	},
 	Enums.DomeTypeEnum.INDUSTRIAL:
 	{
 		"domeName": "Industrial",
-		"baseCost": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseUpkeep": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseIncome": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseBuildTime": 2
+		"baseCost": {"funds": 300, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseUpkeep": {"funds": 20, "life_support": 10, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseIncome": {"funds": 0, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 100},
+		"baseBuildTime": 4,
+		"baseResourceCollectDays": 5,
 	},
 	Enums.DomeTypeEnum.MINING:
 	{
 		"domeName": "Mining",
-		"baseCost": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseUpkeep": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseIncome": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseBuildTime": 2
+		"baseCost": {"funds": 100, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseUpkeep": {"funds": 20, "life_support": 10, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseIncome": {"funds": 0, "life_support": 0, "fuel": 0, "minerals": 100, "alloys": 0},
+		"baseBuildTime": 5,
+		"baseResourceCollectDays": 5,
 	},
 	Enums.DomeTypeEnum.LIFE_SUPPORT:
 	{
 		"domeName": "Life Support",
-		"baseCost": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseUpkeep": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseIncome": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseBuildTime": 2
+		"baseCost": {"funds": 50, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
+		"baseUpkeep": {"funds": 20, "life_support": 10, "fuel": 0, "minerals": 0, "alloys": 20},
+		"baseIncome": {"funds": 100, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
+		"baseBuildTime": 3,
+		"baseResourceCollectDays": 5,
 	},
 	Enums.DomeTypeEnum.LUXURY:
 	{
 		"domeName": "Luxury",
-		"baseCost": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseUpkeep": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseIncome": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseBuildTime": 2
+		"baseCost": {"funds": 75, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
+		"baseUpkeep": {"funds": 20, "life_support": 10, "fuel": 0, "minerals": 0, "alloys": 20},
+		"baseIncome": {"funds": 0, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseBuildTime": 7,
+		"baseResourceCollectDays": 5,
 	},
 	Enums.DomeTypeEnum.RESEARCH:
 	{
 		"domeName": "Research",
-		"baseCost": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
+		"baseCost": {"funds": 200, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
 		"baseUpkeep": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
 		"baseIncome": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseBuildTime": 2
+		"baseBuildTime": 10,
+		"baseResourceCollectDays": 5,
 	},
 	Enums.DomeTypeEnum.SPACE_ELEVATOR:
 	{
 		"domeName": "Space Elevator",
-		"baseCost": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseUpkeep": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseIncome": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseBuildTime": 2
+		"baseCost": {"funds": 0, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseUpkeep": {"funds": 0, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseIncome": {"funds": 100, "life_support": 100, "fuel": 100, "minerals": 0, "alloys": 0},
+		"baseBuildTime": 2,
+		"baseResourceCollectDays": 5,
 	},
 	Enums.DomeTypeEnum.WORMHOLE:
 	{
 		"domeName": "Wormhole",
-		"baseCost": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseUpkeep": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseIncome": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseBuildTime": 2
+		"baseCost": {"funds": 1000, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseUpkeep": {"funds": 100, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 100},
+		"baseIncome": {"funds": 0, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseBuildTime": 20,
+		"baseResourceCollectDays": 5,
 	},
 	Enums.DomeTypeEnum.CONTROL_CENTER:
 	{
 		"domeName": "Control Center",
-		"baseCost": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseUpkeep": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseIncome": {"funds": 20, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 20},
-		"baseBuildTime": 2
+		"baseCost": {"funds": 0, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseUpkeep": {"funds": 0, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseIncome": {"funds": 200, "life_support": 0, "fuel": 0, "minerals": 0, "alloys": 0},
+		"baseBuildTime": 0,
+		"baseResourceCollectDays": 5,
 	},
 }
 
@@ -114,8 +123,8 @@ var DOME_CORP_STATS = {
 		"buildTimeMod": 0,
 		"collapseMult": 1.0,
 		"costMult": 1.0,
-		"incomeMult": 1.0,
-		"upkeepMult": 1.0,
+		"incomeMult": {"funds": 1, "life_support": 1, "fuel": 1, "minerals": 1, "alloys": 1},
+		"upkeepMult": {"funds": 1, "life_support": 1, "fuel": 1, "minerals": 1, "alloys": 1},
 		"strikeMult": 1.0,
 	},
 	Enums.DomeCorpsEnum.CORP2:
@@ -124,8 +133,8 @@ var DOME_CORP_STATS = {
 		"buildTimeMod": 0,
 		"collapseMult": 1.0,
 		"costMult": 1.0,
-		"incomeMult": 1.0,
-		"upkeepMult": 1.0,
+		"incomeMult": {"funds": 1, "life_support": 1, "fuel": 1, "minerals": 1, "alloys": 1},
+		"upkeepMult": {"funds": 1, "life_support": 1, "fuel": 1, "minerals": 1, "alloys": 1},
 		"strikeMult": 1.0,
 	},
 	Enums.DomeCorpsEnum.CORP3:
@@ -134,8 +143,8 @@ var DOME_CORP_STATS = {
 		"buildTimeMod": 0,
 		"collapseMult": 1.0,
 		"costMult": 1.0,
-		"incomeMult": 1.0,
-		"upkeepMult": 1.0,
+		"incomeMult": {"funds": 1, "life_support": 1, "fuel": 1, "minerals": 1, "alloys": 1},
+		"upkeepMult": {"funds": 1, "life_support": 1, "fuel": 1, "minerals": 1, "alloys": 1},
 		"strikeMult": 1.0,
 	},
 	Enums.DomeCorpsEnum.CORP4:
@@ -144,8 +153,8 @@ var DOME_CORP_STATS = {
 		"buildTimeMod": 0,
 		"collapseMult": 1.0,
 		"costMult": 1.0,
-		"incomeMult": 1.0,
-		"upkeepMult": 1.0,
+		"incomeMult": {"funds": 1, "life_support": 1, "fuel": 1, "minerals": 1, "alloys": 1},
+		"upkeepMult": {"funds": 1, "life_support": 1, "fuel": 1, "minerals": 1, "alloys": 1},
 		"strikeMult": 1.0,
 	},
 	Enums.DomeCorpsEnum.CORP5:
@@ -154,10 +163,11 @@ var DOME_CORP_STATS = {
 		"buildTimeMod": 0,
 		"collapseMult": 1.0,
 		"costMult": 1.0,
-		"incomeMult": 1.0,
-		"upkeepMult": 1.0,
+		"incomeMult": {"funds": 1, "life_support": 1, "fuel": 1, "minerals": 1, "alloys": 1},
+		"upkeepMult": {"funds": 1, "life_support": 1, "fuel": 1, "minerals": 1, "alloys": 1},
 		"strikeMult": 1.0,
 	},
 }
 
 const RESUPPLY_TIMES: Array[int] = [21, 30, 30]
+const MAX_COLLAPSED_DOME_PER_QUAKE: int = 3

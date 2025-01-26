@@ -164,7 +164,7 @@ func no_nearby_two_wide_domes(coordinate: Vector2i, is_two_by_two: bool = false)
 			return false
 
 	return true
-	
+
 func generate_coordinates_array() -> Array[Vector2i]:
 	var coordinates: Array[Vector2i] = []
 	for x in range(Globals.GRID_SIZE[0]):

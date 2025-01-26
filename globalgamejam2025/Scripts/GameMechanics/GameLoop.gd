@@ -93,6 +93,7 @@ func init_game() -> void:
 		Enums.DomeTypeEnum.RESEARCH: 1.0,
 		Enums.DomeTypeEnum.SPACE_ELEVATOR: 1.0,
 		Enums.DomeTypeEnum.WORMHOLE: 1.0,
+		Enums.DomeTypeEnum.CONTROL_CENTER: 1.0,
 	}
 	Globals.dome_construction_cost_multiplier = 1.0
 	Globals.dome_construction_time_multiplier = 1.0
@@ -107,6 +108,7 @@ func init_game() -> void:
 		Enums.DomeTypeEnum.RESEARCH: 1.0,
 		Enums.DomeTypeEnum.SPACE_ELEVATOR: 1.0,
 		Enums.DomeTypeEnum.WORMHOLE: 1.0,
+		Enums.DomeTypeEnum.CONTROL_CENTER: 1.0,
 	}
 	Globals.funds = 100
 	Globals.life_support = 100
