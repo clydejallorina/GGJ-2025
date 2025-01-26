@@ -25,12 +25,7 @@ offset_bottom = 601.0
 metadata/_edit_lock_ = true
 
 [node name="MessageIndicator" parent="." instance=ExtResource("4_lt04b")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 1151.0
+offset_left = 1087.0
 offset_top = 110.0
-offset_right = 1151.0
-offset_bottom = 110.0
-grow_horizontal = 1
-grow_vertical = 1
+offset_right = 1223.0
+offset_bottom = 165.0

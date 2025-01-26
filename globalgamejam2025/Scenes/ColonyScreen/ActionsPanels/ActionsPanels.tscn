@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b38d72ge3ntv5"]
+[gd_scene load_steps=5 format=3 uid="uid://b38d72ge3ntv5"]
 
 [ext_resource type="Theme" uid="uid://ccq14ephep1dp" path="res://Scenes/ColonyScreen/ActionsPanels/ActionsPanelsLabels.tres" id="1_dgue8"]
+[ext_resource type="Theme" uid="uid://dgbu83fwukjwh" path="res://Scenes/ColonyScreen/Themes/darkpanel.tres" id="1_mim4c"]
 [ext_resource type="Texture2D" uid="uid://bnxn0500e1kn2" path="res://Assets/Tilesets/Building/building_dome.png" id="2_bjgye"]
-[ext_resource type="Texture2D" uid="uid://cbj6x2nin06eg" path="res://Assets/Tilesets/Building/building_life_support_dome.png" id="3_rm28k"]
+[ext_resource type="Theme" uid="uid://dm3n0y7273udx" path="res://Scenes/ColonyScreen/Themes/DarkPanel2.tres" id="5_74p6w"]
 
 [node name="ActionsPanels" type="Control"]
 layout_mode = 3
@@ -14,12 +15,13 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 250.0
-offset_bottom = 284.0
+offset_right = 318.0
+offset_bottom = 380.0
 
 [node name="BuildDomePanel" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_mim4c")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BuildDomePanel"]
 layout_mode = 2
@@ -27,6 +29,9 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.55
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -38,72 +43,105 @@ theme = ExtResource("1_dgue8")
 text = "Build Dome
 "
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.45
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.79
 
-[node name="CenterContainer2" type="VBoxContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer"]
+[node name="CenterContainer2" type="VBoxContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 5
 
-[node name="DomeTopRow" type="HBoxContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2"]
+[node name="DomeTopRow" type="HBoxContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 20
+theme_override_constants/separation = 4
 
-[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2/DomeTopRow"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow"]
+layout_mode = 2
+theme = ExtResource("5_74p6w")
+
+[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow/PanelContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("2_bjgye")
 stretch_mode = 5
 
-[node name="Dome2" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2/DomeTopRow"]
-custom_minimum_size = Vector2(64, 64)
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow"]
 layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("3_rm28k")
-stretch_mode = 5
+theme = ExtResource("5_74p6w")
 
-[node name="Dome3" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2/DomeTopRow"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("3_rm28k")
-stretch_mode = 5
-
-[node name="DomeBotRow" type="HBoxContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2/DomeBotRow"]
+[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow/PanelContainer2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
 texture_normal = ExtResource("2_bjgye")
 stretch_mode = 5
 
-[node name="Dome2" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2/DomeBotRow"]
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow"]
+layout_mode = 2
+theme = ExtResource("5_74p6w")
+
+[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow/PanelContainer3"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("3_rm28k")
+texture_normal = ExtResource("2_bjgye")
 stretch_mode = 5
 
-[node name="Dome3" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/CenterContainer/CenterContainer2/DomeBotRow"]
+[node name="DomeTopRow2" type="HBoxContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2"]
+layout_mode = 2
+theme = ExtResource("5_74p6w")
+
+[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2/PanelContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("3_rm28k")
+texture_normal = ExtResource("2_bjgye")
+stretch_mode = 5
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2"]
+layout_mode = 2
+theme = ExtResource("5_74p6w")
+
+[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2/PanelContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_bjgye")
+stretch_mode = 5
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2"]
+layout_mode = 2
+theme = ExtResource("5_74p6w")
+
+[node name="Dome1" type="TextureButton" parent="VBoxContainer/BuildDomePanel/VBoxContainer/MarginContainer2/CenterContainer/CenterContainer2/DomeTopRow2/PanelContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("2_bjgye")
 stretch_mode = 5
 
 [node name="RepairPanel" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
+theme = ExtResource("5_74p6w")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/RepairPanel"]
 layout_mode = 2
@@ -120,6 +158,7 @@ text = "Repair Dome"
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
+theme = ExtResource("5_74p6w")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/LawsPanel"]
 layout_mode = 2

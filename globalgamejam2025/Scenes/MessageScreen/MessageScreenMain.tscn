@@ -1,14 +1,22 @@
-[gd_scene load_steps=13 format=3 uid="uid://dr65tjhfdd1ib"]
+[gd_scene load_steps=16 format=3 uid="uid://dr65tjhfdd1ib"]
 
 [ext_resource type="PackedScene" uid="uid://bh2ebvq03up6" path="res://Scenes/MessageScreen/InboxMessage/InboxMessage.tscn" id="1_3qrun"]
 [ext_resource type="Theme" uid="uid://b8n43o6m44h3v" path="res://Scenes/MessageScreen/Themes/PanelLightOne.tres" id="1_fjm3a"]
 [ext_resource type="PackedScene" uid="uid://df3n6js61of5m" path="res://Scenes/Common/TopBar/TopBar.tscn" id="1_n8gmb"]
+[ext_resource type="Texture2D" uid="uid://80yll7qkgwvs" path="res://Assets/UI/messagebg.png" id="1_tat4w"]
 [ext_resource type="PackedScene" uid="uid://be7jghe8oxplq" path="res://Scenes/MessageScreen/EmailContentPanel/EmailHeader/EmailHeader.tscn" id="1_y7qf3"]
 [ext_resource type="PackedScene" uid="uid://d3kwlaysrnmdj" path="res://Scenes/MessageScreen/EmailContentPanel/EmailContent/EmailContent.tscn" id="2_alfqv"]
 [ext_resource type="Texture2D" uid="uid://b1y33e7f7k5fb" path="res://Assets/UI/lightpanel2.png" id="2_tgbvw"]
 [ext_resource type="Theme" uid="uid://yeiji61tyblo" path="res://Scenes/MessageScreen/Themes/InboxHeaderText.tres" id="3_ido5g"]
 [ext_resource type="PackedScene" uid="uid://2pb8a17jo2nt" path="res://Scenes/MessageScreen/EmailContentPanel/EmailReply/EmailReply.tscn" id="3_p4a1l"]
 [ext_resource type="PackedScene" uid="uid://bitgf3ac6vlb5" path="res://Scenes/Common/SwitchScreen/SwitchScreen.tscn" id="6_5utqv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ica3b"]
+texture = ExtResource("1_tat4w")
+region_rect = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="Theme" id="Theme_bjobs"]
+Panel/styles/panel = SubResource("StyleBoxTexture_ica3b")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5brs"]
 
@@ -28,6 +36,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_pvap2")
 [node name="Panel" type="Panel" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
+theme = SubResource("Theme_bjobs")
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel"]
 layout_mode = 1
