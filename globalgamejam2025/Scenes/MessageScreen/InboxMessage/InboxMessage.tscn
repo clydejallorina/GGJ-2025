@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bh2ebvq03up6"]
+[gd_scene load_steps=4 format=3 uid="uid://bh2ebvq03up6"]
 
-[ext_resource type="Texture2D" uid="uid://b81ugljktxryj" path="res://Assets/Logos/corp2.png" id="1_b8k3k"]
+[ext_resource type="Theme" uid="uid://b8n43o6m44h3v" path="res://Scenes/MessageScreen/Themes/PanelLightOne.tres" id="1_7k7yi"]
+[ext_resource type="Texture2D" uid="uid://brlcyxkej805l" path="res://Assets/Logos/Earth.png" id="2_loj6g"]
 [ext_resource type="Theme" uid="uid://bsmu3hwjpb60v" path="res://Scenes/MessageScreen/Themes/InboxSidebarText.tres" id="2_ufq7v"]
 
 [node name="Container" type="PanelContainer"]
@@ -8,12 +9,15 @@ custom_minimum_size = Vector2(220, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1060.0
-offset_bottom = -648.0
+offset_left = -16.0
+offset_top = -14.0
+offset_right = -1044.0
+offset_bottom = -634.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("1_7k7yi")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -25,10 +29,10 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+[node name="InboxMessageLogo" type="TextureRect" parent="HBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = ExtResource("1_b8k3k")
+texture = ExtResource("2_loj6g")
 expand_mode = 2
 stretch_mode = 5
 

@@ -1,11 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr65tjhfdd1ib"]
+[gd_scene load_steps=13 format=3 uid="uid://dr65tjhfdd1ib"]
 
 [ext_resource type="PackedScene" uid="uid://bh2ebvq03up6" path="res://Scenes/MessageScreen/InboxMessage/InboxMessage.tscn" id="1_3qrun"]
+[ext_resource type="Theme" uid="uid://b8n43o6m44h3v" path="res://Scenes/MessageScreen/Themes/PanelLightOne.tres" id="1_fjm3a"]
 [ext_resource type="PackedScene" uid="uid://df3n6js61of5m" path="res://Scenes/Common/TopBar/TopBar.tscn" id="1_n8gmb"]
 [ext_resource type="PackedScene" uid="uid://be7jghe8oxplq" path="res://Scenes/MessageScreen/EmailContentPanel/EmailHeader/EmailHeader.tscn" id="1_y7qf3"]
 [ext_resource type="PackedScene" uid="uid://d3kwlaysrnmdj" path="res://Scenes/MessageScreen/EmailContentPanel/EmailContent/EmailContent.tscn" id="2_alfqv"]
+[ext_resource type="Texture2D" uid="uid://b1y33e7f7k5fb" path="res://Assets/UI/lightpanel2.png" id="2_tgbvw"]
+[ext_resource type="Theme" uid="uid://yeiji61tyblo" path="res://Scenes/MessageScreen/Themes/InboxHeaderText.tres" id="3_ido5g"]
 [ext_resource type="PackedScene" uid="uid://2pb8a17jo2nt" path="res://Scenes/MessageScreen/EmailContentPanel/EmailReply/EmailReply.tscn" id="3_p4a1l"]
 [ext_resource type="PackedScene" uid="uid://bitgf3ac6vlb5" path="res://Scenes/Common/SwitchScreen/SwitchScreen.tscn" id="6_5utqv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w5brs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pvap2"]
+texture = ExtResource("2_tgbvw")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(10, 10, 238, 238)
+
+[sub_resource type="Theme" id="Theme_haf84"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_pvap2")
 
 [node name="MessageScreenMain" type="Node2D"]
 
@@ -30,30 +46,47 @@ grow_vertical = 2
 [node name="EmailHBoxContainer" type="HBoxContainer" parent="Panel/CenterContainer"]
 custom_minimum_size = Vector2(880, 0)
 layout_mode = 2
+theme_override_constants/separation = -16
 
 [node name="PanelContainer" type="PanelContainer" parent="Panel/CenterContainer/EmailHBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme = ExtResource("1_fjm3a")
+theme_override_styles/panel = SubResource("StyleBoxTexture_w5brs")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/CenterContainer/EmailHBoxContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+size_flags_stretch_ratio = 2.22
 
-[node name="Container" type="VBoxContainer" parent="Panel/CenterContainer/EmailHBoxContainer/PanelContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/CenterContainer/EmailHBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+horizontal_scroll_mode = 0
 
-[node name="InboxMessage" parent="Panel/CenterContainer/EmailHBoxContainer/PanelContainer/MarginContainer/Container" instance=ExtResource("1_3qrun")]
+[node name="Container" type="VBoxContainer" parent="Panel/CenterContainer/EmailHBoxContainer/PanelContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = -6
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/CenterContainer/EmailHBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Container"]
+layout_mode = 2
+theme = SubResource("Theme_haf84")
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/CenterContainer/EmailHBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Container/PanelContainer"]
 layout_mode = 2
 
-[node name="InboxMessage2" parent="Panel/CenterContainer/EmailHBoxContainer/PanelContainer/MarginContainer/Container" instance=ExtResource("1_3qrun")]
+[node name="Label" type="Label" parent="Panel/CenterContainer/EmailHBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Container/PanelContainer/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("3_ido5g")
+text = "Inbox"
+
+[node name="InboxMessage" parent="Panel/CenterContainer/EmailHBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Container" instance=ExtResource("1_3qrun")]
+layout_mode = 2
+
+[node name="InboxMessage2" parent="Panel/CenterContainer/EmailHBoxContainer/PanelContainer/MarginContainer/ScrollContainer/Container" instance=ExtResource("1_3qrun")]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer/EmailHBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = -6
 
 [node name="EmailHeader" parent="Panel/CenterContainer/EmailHBoxContainer/VBoxContainer" instance=ExtResource("1_y7qf3")]
 custom_minimum_size = Vector2(0, 64)
