@@ -31,6 +31,9 @@ var audited_alloys: int = 0
 var audit_fudge_chance: float = 0.0
 var audit_fudge_chance_increase: float = 0.025
 
+var marsquake_chance: float = 0.0
+var marsquake_chance_increase: float = 0.005
+
 # Resource Multipliers (typically manipulated by Laws)
 var global_upkeep_multiplier: float = 1.0
 var upkeep_multipliers: Dictionary = {

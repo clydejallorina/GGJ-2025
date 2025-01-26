@@ -10,6 +10,7 @@ var rng: RandomNumberGenerator
 func _init():
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
+	Signals.screen_shake.connect(marsquake)
 	
 func flatten_grid() -> Array:
 	var domes = []
@@ -47,7 +48,17 @@ func random_collapse_domes(collapseChance: float):
 	var domes = flatten_grid()
 	for dome in domes:
 		if rng.randfn() < dome.getCollapseChance(collapseChance):
-			dome.setCollapse(true)
+			dome.setStatus(Enums.DomeStatusEnum.COLLAPSED)
+
+func marsquake(strength: float):
+	var domes = flatten_grid()
+	for _i in range(strength):
+		var i = rng.randi_range(0, domes.size() - 1)
+		if domes[i].type == Enums.DomeTypeEnum.CONTROL_CENTER:
+			# Let's not hit the control center with quakes
+			# That would be too annoying for the player lol
+			continue
+		domes[i].setStatus(Enums.DomeStatusEnum.COLLAPSED)
 
 
 func tick():
