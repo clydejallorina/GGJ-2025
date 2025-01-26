@@ -1,6 +1,6 @@
 extends TileMapLayer
 
-@onready var states_overlay = $StateOverlay
+@onready var state_overlay = $StateOverlay
 var ding_sound = preload("res://Assets/Audio/pop-39222.mp3")
 
 # Called when the node enters the scene tree for the first time.
@@ -32,14 +32,24 @@ func create_building(building_type: Enums.DomeTypeEnum, corp_type: Enums.DomeCor
 	if not validate_location_by_coordinate(coordinate):
 		return
 
-	set_cell(coordinate, Constants.BUILDING_TO_TILESET_SOURCE_MAP[building_type], Vector2i(0,0))
-	Globals.GRID[coordinate.x][coordinate.y] = Dome.new(
+	# Initialize dome to building state
+	var dome = Dome.new(
 		building_type,
 		corp_type,
 		coordinate,
 	)
+	
+	dome.setStatus(Enums.DomeStatusEnum.BUILDING)
+	Globals.GRID[coordinate.x][coordinate.y] = dome
+	
+	set_cell(coordinate, Constants.BUILDING_TO_TILESET_SOURCE_MAP[building_type], Vector2i(0,0))
+	state_overlay.set_cell(coordinate, 0, Constants.STATE_OVERLAY_TO_TILESET_ATLAS_COORD[
+		Enums.DomeStatusEnum.BUILDING
+	])
 
 # CONNECT THIS TO AN EMITTER, PREFERRABLY ON DESTROY EVENT
+# Can specify coordinate if you want to delete a specific dome
+# If you want it to be random don't pass anything
 func delete_building(coordinate: Vector2i = Vector2i(-1,-1)) -> void:
 	var secondary_location = choose_location_with_buildings()
 	
@@ -49,7 +59,12 @@ func delete_building(coordinate: Vector2i = Vector2i(-1,-1)) -> void:
 	if not validate_location_by_coordinate(coordinate):
 		coordinate = secondary_location
 	
+	# Should not be able to delete control center
+	if Globals.GRID[coordinate.x][coordinate.y] and Globals.GRID[coordinate.x][coordinate.y].type == Enums.DomeTypeEnum.CONTROL_CENTER:
+		return
+
 	erase_cell(coordinate)
+	state_overlay.erase_cell(coordinate)
 	Globals.GRID[coordinate.x][coordinate.y] = null
 	
 func change_building_state(coordinate: Vector2i, status: Enums.DomeStatusEnum) -> void:
@@ -57,7 +72,7 @@ func change_building_state(coordinate: Vector2i, status: Enums.DomeStatusEnum) -
 		return
 	
 	Globals.GRID[coordinate.x][coordinate.y].setStatus(status)
-	states_overlay.set_cell(coordinate, 0, Constants.STATE_OVERLAY_TO_TILESET_ATLAS_COORD[status])
+	state_overlay.set_cell(coordinate, 0, Constants.STATE_OVERLAY_TO_TILESET_ATLAS_COORD[status])
 	
 func choose_location_with_buildings() -> Vector2i:
 	var cells_with_buildings = []
@@ -94,7 +109,7 @@ func validate_location_by_building_type(coordinate: Vector2i, building_type: Enu
 	if not validate_neighbors(coordinate, building_type):
 		return false
 	
-	# Can't place 2x2 dome: We only have research dome as a 2x2 dome
+	# Can't place 2x2 dome at upper edges: We only have command center dome as a 2x2 dome
 	if Constants.TWO_BY_TWO_BUILDINGS.has(building_type) and (coordinate.x == 0 or coordinate.y == 0):
 		return false
 
