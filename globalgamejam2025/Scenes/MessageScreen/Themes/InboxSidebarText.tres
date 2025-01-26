@@ -7,5 +7,6 @@ base_font = ExtResource("1_madgc")
 spacing_top = -6
 
 [resource]
+Label/colors/font_color = Color(0.117188, 0.117188, 0.117188, 1)
 Label/font_sizes/font_size = 32
 Label/fonts/font = SubResource("FontVariation_s644a")
