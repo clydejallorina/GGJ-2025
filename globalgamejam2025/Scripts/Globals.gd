@@ -74,5 +74,5 @@ var active_laws: Array[Enums.LawsEnum] = []
 var random_collapse_chance: float = 0
 
 # Tasks
-var active_tasks: Array[Enums.Task] = []
+var active_tasks: Array[Enums.Task] = [Enums.Task.E_STOCKPILE_500_ALLOYS]
 var finished_tasks: Array[Enums.Task] = []

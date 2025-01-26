@@ -4,8 +4,8 @@ extends Node
 #       the GameLoop script should be the only one directly interfacing with
 #       this value. The day number has been provided in these
 #       signals for safety and everyone's convenience.
-signal pre_tick(day_number)
-signal post_tick(day_number)
+signal pre_tick(day_number: int)
+signal post_tick(day_number: int)
 
 # Dome related signals
 signal build_dome(building_type: Enums.DomeTypeEnum, corp_type: Enums.DomeCorpsEnum)

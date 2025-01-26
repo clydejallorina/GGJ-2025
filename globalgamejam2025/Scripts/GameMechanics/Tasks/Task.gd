@@ -18,4 +18,8 @@ func _init(
 	self.next_task = init_next_task
 
 func check_completion() -> bool:
+	if not self.completion_check:
+		printerr("Completion check failed: completion_check is Nil!")
+		return false
+	print("Completion Check: ", self.completion_check.call())
 	return self.completion_check.call()

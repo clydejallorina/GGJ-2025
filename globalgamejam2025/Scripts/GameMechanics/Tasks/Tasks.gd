@@ -11,37 +11,37 @@ func _ready() -> void:
 		Enums.Task.E_STOCKPILE_500_LIFE_SUPPORT: Task.new(
 			Enums.Task.E_STOCKPILE_500_LIFE_SUPPORT,
 			Enums.TaskAffiliation.EARTH,
-			func x(): Globals.audited_life_support >= 500,
+			func x(): return Globals.audited_life_support >= 500,
 		),
 		Enums.Task.E_STOCKPILE_500_ALLOYS: Task.new(
 			Enums.Task.E_STOCKPILE_500_ALLOYS,
 			Enums.TaskAffiliation.EARTH,
-			func x(): Globals.audited_alloys >= 500,
+			func x(): return Globals.audited_alloys >= 500,
 		),
 		Enums.Task.E_INCOME_100_MINERALS: Task.new(
 			Enums.Task.E_INCOME_100_MINERALS,
 			Enums.TaskAffiliation.EARTH,
-			func x(): false, # TODO: This
+			func x(): return false, # TODO: This
 		),
 		Enums.Task.E_INCOME_50_LIFE_SUPPORT_50_ALLOYS: Task.new(
 			Enums.Task.E_INCOME_50_LIFE_SUPPORT_50_ALLOYS,
 			Enums.TaskAffiliation.EARTH,
-			func x(): false, # TODO: This
+			func x(): return false, # TODO: This
 		),
 		Enums.Task.E_BUILD_2_DOMES: Task.new(
 			Enums.Task.E_BUILD_2_DOMES,
 			Enums.TaskAffiliation.EARTH,
-			func x(): DomeHandler.flatten_grid().size() >= 3,
+			func x(): return DomeHandler.flatten_grid().size() >= 3,
 		),
 		Enums.Task.E_REPAIR_DOMES: Task.new(
 			Enums.Task.E_REPAIR_DOMES,
 			Enums.TaskAffiliation.EARTH,
-			func x(): DomeHandler.flatten_grid().filter(func y(dome): dome.status == Enums.DomeStatusEnum.COLLAPSED).size() == 0,
+			func x(): return DomeHandler.flatten_grid().filter(func y(dome): dome.status == Enums.DomeStatusEnum.COLLAPSED).size() == 0,
 		),
 	}
 	Signals.post_tick.connect(check_task_completion)
 
-func check_task_completion() -> void:
+func check_task_completion(_day: int) -> void:
 	for task in Globals.active_tasks:
 		var t = tasks[task]
 		if t.check_completion():
