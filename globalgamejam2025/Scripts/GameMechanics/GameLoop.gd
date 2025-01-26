@@ -8,7 +8,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	## REMOVE THIS, JUST FOR TESTING
 	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_A:
-		var valid_domes = Enums.DomeTypeEnum.values().filter(func(val): return Constants.BUILDING_TO_TILESET_SOURCE_MAP[val] != null)
+		var valid_domes = Enums.DomeTypeEnum.values().filter(func(val): return Constants.BUILDING_TO_TILESET_SOURCE_MAP[val] != null and val != Enums.DomeTypeEnum.CONTROL_CENTER)
 		Signals.build_dome.emit(valid_domes.pick_random(), Enums.DomeCorpsEnum.values().pick_random())
 		
 	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_D:
@@ -73,14 +73,6 @@ func init_game() -> void:
 	# Game initialization stuff here
 	ticker_node.wait_time = Globals.SECONDS_PER_TICK
 	ticker_node.start()
-	
-	# Initialize grid, sadly no clean way to do this
-	Globals.GRID = []
-	for x in range(Globals.GRID_SIZE[0]):
-		var row = []
-		row.resize(Globals.GRID_SIZE[1])
-		row.fill(null)
-		Globals.GRID.append(row)
 	
 	# Multipliers Initialization
 	Globals.global_upkeep_multiplier = 1.0

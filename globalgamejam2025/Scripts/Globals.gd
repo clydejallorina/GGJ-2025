@@ -1,7 +1,7 @@
 extends Node
 
-var GRID_SIZE = Vector2(8,8)
-var GRID = []
+var GRID_SIZE = Vector2i(8,8)
+var GRID = Array(range(GRID_SIZE[0])).map(func (i): return Array(range(GRID_SIZE[1])).map(func (j): return null)) # A bit hacky, just to generate grid at start of the game
 var DAY: int = 0
 # Starting date for the game in unix time (2036-01-26)
 const STARTING_DATE: int = 2084889600
