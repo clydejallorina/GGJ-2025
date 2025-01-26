@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b6jjejpsm65ab"]
+
+[ext_resource type="Texture2D" uid="uid://ci8eyw40gwauy" path="res://Assets/UI/darkpanel2.png" id="1_ukom3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c7t4h"]
+texture = ExtResource("1_ukom3")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 11.8573
+texture_margin_bottom = 12.0
+region_rect = Rect2(5, 6, 116, 116)
+
+[resource]
+Button/styles/normal = SubResource("StyleBoxTexture_c7t4h")

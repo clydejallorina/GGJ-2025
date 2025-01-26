@@ -1,35 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5l1c6e08j4oj"]
+[gd_scene load_steps=5 format=3 uid="uid://b5l1c6e08j4oj"]
 
+[ext_resource type="Theme" uid="uid://dgbu83fwukjwh" path="res://Scenes/ColonyScreen/Themes/darkpanel.tres" id="1_by6uv"]
 [ext_resource type="FontFile" uid="uid://c6dnygysi35pd" path="res://Assets/Fonts/QuinqueFive.otf" id="1_gmnff"]
-[ext_resource type="Texture2D" uid="uid://5be6ftflbv5u" path="res://Assets/Icons/power.png" id="2_p4y4m"]
+[ext_resource type="Texture2D" uid="uid://eijydo842224" path="res://Assets/Icons/message.png" id="2_vnaaq"]
 
-[node name="MessageIndicator" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="FontVariation" id="FontVariation_rv7l5"]
+base_font = ExtResource("1_gmnff")
+spacing_top = -4
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_right = 125.0
-offset_bottom = 56.0
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 152.0
+offset_bottom = 68.0
+theme = ExtResource("1_by6uv")
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/CenterContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_gmnff")
+theme_override_fonts/font = SubResource("FontVariation_rv7l5")
 theme_override_font_sizes/font_size = 24
 text = "2"
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/CenterContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_p4y4m")
-expand_mode = 2
+texture = ExtResource("2_vnaaq")
+expand_mode = 3
 stretch_mode = 4
