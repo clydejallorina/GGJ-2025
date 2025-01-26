@@ -16,3 +16,8 @@ signal collect_dome_income(coordinate: Vector2i)
 
 # Camera related signals
 signal screen_shake(trauma: float)
+
+# Messaging-related signals
+signal read_messages
+signal read_message(message_id)
+signal new_message

@@ -65,6 +65,7 @@ var income_multipliers: Dictionary = {
 # There should already be a MessagingHandler node in the MainGame scene
 # that deals with this, so try to use that if possible.
 var message_queue: Array[Message] = []
+var unread_messages: int = 0
 
 # Laws
 var active_laws: Array[Enums.LawsEnum] = []
