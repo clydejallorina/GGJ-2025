@@ -8,7 +8,7 @@ signal pre_tick(day_number: int)
 signal post_tick(day_number: int)
 
 # Dome related signals
-signal build_dome(building_type: Enums.DomeTypeEnum, corp_type: Enums.DomeCorpsEnum)
+signal build_dome(building_type: Enums.DomeTypeEnum, corp_type: Enums.DomeCorpsEnum, cost: int)
 signal destroy_dome(coordinate: Vector2i)
 
 # Show bidder screen

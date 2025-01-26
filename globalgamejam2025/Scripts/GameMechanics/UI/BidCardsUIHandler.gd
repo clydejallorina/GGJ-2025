@@ -9,11 +9,12 @@ extends Control
 
 var _building_type: Enums.DomeTypeEnum
 var _corp_type: Enums.DomeCorpsEnum
+var _cost: int
 
 func _ready():
 	hire_button.button_down.connect(process_hire)
 	
-func set_everything(cost_label: String, name: String, description: String, logo: String):
+func set_everything(cost_label: int, name: String, description: String, logo: String):
 	set_cost_label(cost_label)
 	set_corp_name(name)
 	set_description(description)
@@ -25,7 +26,8 @@ func set_build_data(building_type: Enums.DomeTypeEnum, corp_type: Enums.DomeCorp
 	_corp_type = corp_type
 	
 func set_cost_label(inp_label) -> void:
-	cost_label.text = inp_label;
+	_cost = inp_label
+	cost_label.text = str(inp_label);
 
 func set_description(inp_description: String) -> void:
 	description.text = inp_description
@@ -55,4 +57,4 @@ func make_logo_invisible():
 
 func process_hire():
 	Signals.hide_bidder.emit()
-	Signals.build_dome.emit(_building_type, _corp_type)
+	Signals.build_dome.emit(_building_type, _corp_type, _cost)

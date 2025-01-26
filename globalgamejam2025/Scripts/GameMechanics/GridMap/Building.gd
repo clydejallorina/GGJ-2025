@@ -26,11 +26,14 @@ func _input(event: InputEvent) -> void:
 		print(cell_coordinates)
 
 # CONNECT THIS TO AN EMITTER, PREFERRABLY ON BUILD EVENT
-func create_building(building_type: Enums.DomeTypeEnum, corp_type: Enums.DomeCorpsEnum) -> void:
+func create_building(building_type: Enums.DomeTypeEnum, corp_type: Enums.DomeCorpsEnum, cost: int) -> void:
 	var coordinate = choose_random_valid_location(building_type)
 
 	if not validate_location_by_coordinate(coordinate):
 		return
+		
+	Globals.funds -= cost
+	Globals.audited_funds -= cost
 
 	# Initialize dome to building state
 	var dome = Dome.new(

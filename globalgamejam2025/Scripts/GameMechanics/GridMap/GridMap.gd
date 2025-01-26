@@ -35,6 +35,7 @@ func generate_terrain() -> void:
 			if x in range(Globals.GRID_SIZE[0]) and y in range(Globals.GRID_SIZE[1]):
 				continue
 			lower_terrain.set_cell(Vector2(x, y), terrain_base_mars_source_ids.values().pick_random(), Vector2i(0,0))
+			lower_terrain.get_cell_tile_data(Vector2(x, y))
 
 # Can make this load from SAVE
 func generate_building() -> void:
