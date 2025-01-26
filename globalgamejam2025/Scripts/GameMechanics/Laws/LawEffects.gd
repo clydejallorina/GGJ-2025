@@ -82,7 +82,7 @@ func stockpile_overseers():
 		printerr("Attempted to activate a law that's already active!")
 		return
 	# Increase audit accuracy by 50%
-	# TODO: Auditing
+	Globals.audit_fudge_chance -= 0.50
 	Globals.active_laws.append(Enums.LawsEnum.ROUND_THE_CLOCK)
 
 func corporate_subsidies():
@@ -98,8 +98,8 @@ func corporate_subsidies():
 # -------------------- [ REPEAL FUNCTIONS ] --------------------
 
 func repeal_ration_life_support():
-	if Globals.active_laws.has(Enums.LawsEnum.RATIONING):
-		printerr("Attempted to activate a law that's already active!")
+	if not Globals.active_laws.has(Enums.LawsEnum.RATIONING):
+		printerr("Attempted to repeal a law that's not active!")
 		return
 	# Reduce global life support upkeep by 20%
 	# Reduce industrial and mining income by 10%
@@ -109,8 +109,8 @@ func repeal_ration_life_support():
 	Globals.active_laws.append(Enums.LawsEnum.RATIONING)
 
 func repeal_preserve_supplies():
-	if Globals.active_laws.has(Enums.LawsEnum.PRESERVE):
-		printerr("Attempted to activate a law that's already active!")
+	if not Globals.active_laws.has(Enums.LawsEnum.PRESERVE):
+		printerr("Attempted to repeal a law that's not active!")
 		return
 	# Reduce dome cost by 20%
 	# Increase accident chance by 5%
@@ -119,8 +119,8 @@ func repeal_preserve_supplies():
 	Globals.active_laws.append(Enums.LawsEnum.PRESERVE)
 
 func repeal_expand_habitation_zones():
-	if Globals.active_laws.has(Enums.LawsEnum.EXPAND_HABITATION):
-		printerr("Attempted to activate a law that's already active!")
+	if not Globals.active_laws.has(Enums.LawsEnum.EXPAND_HABITATION):
+		printerr("Attempted to repeal a law that's not active!")
 		return
 	# Increase number of worked domes per housing dome by 0.5
 	# Increase housing dome life support upkeep by 10%
@@ -131,8 +131,8 @@ func repeal_expand_habitation_zones():
 	Globals.active_laws.append(Enums.LawsEnum.EXPAND_HABITATION)
 
 func repeal_increase_working_hours():
-	if Globals.active_laws.has(Enums.LawsEnum.WORK_MORE):
-		printerr("Attempted to activate a law that's already active!")
+	if not Globals.active_laws.has(Enums.LawsEnum.WORK_MORE):
+		printerr("Attempted to repeal a law that's not active!")
 		return
 	# Increase all incomes by 10%
 	# Increase accident chance by 5%
@@ -143,8 +143,8 @@ func repeal_increase_working_hours():
 	Globals.active_laws.append(Enums.LawsEnum.WORK_MORE)
 
 func repeal_round_the_clock_construction():
-	if Globals.active_laws.has(Enums.LawsEnum.ROUND_THE_CLOCK):
-		printerr("Attempted to activate a law that's already active!")
+	if not Globals.active_laws.has(Enums.LawsEnum.ROUND_THE_CLOCK):
+		printerr("Attempted to repeal a law that's not active!")
 		return
 	# Reduce overall build time by 20%
 	# Increase build cost by 10%
@@ -153,16 +153,16 @@ func repeal_round_the_clock_construction():
 	Globals.active_laws.append(Enums.LawsEnum.ROUND_THE_CLOCK)
 
 func repeal_stockpile_overseers():
-	if Globals.active_laws.has(Enums.LawsEnum.ROUND_THE_CLOCK):
-		printerr("Attempted to activate a law that's already active!")
+	if not Globals.active_laws.has(Enums.LawsEnum.ROUND_THE_CLOCK):
+		printerr("Attempted to repeal a law that's not active!")
 		return
 	# Increase audit accuracy by 50%
-	# TODO: Auditing
+	Globals.audit_fudge_chance += 0.50
 	Globals.active_laws.append(Enums.LawsEnum.ROUND_THE_CLOCK)
 
 func repeal_corporate_subsidies():
-	if Globals.active_laws.has(Enums.LawsEnum.CORPORATE_SUBSIDIES):
-		printerr("Attempted to activate a law that's already active!")
+	if not Globals.active_laws.has(Enums.LawsEnum.CORPORATE_SUBSIDIES):
+		printerr("Attempted to repeal a law that's not active!")
 		return
 	# Reduce cost for bids by 10%
 	# Martian Reputation hit?

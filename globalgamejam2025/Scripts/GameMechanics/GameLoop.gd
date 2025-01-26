@@ -36,6 +36,29 @@ func pre_tick() -> void:
 		# TODO: Configurable resupplies
 		Globals.funds += 100
 		Globals.alloys += 100
+	if Globals.DAY % 7 == 0:
+		# Do an audit
+		Globals.audited_funds = Globals.funds
+		Globals.audited_life_support = Globals.life_support
+		Globals.audited_fuel = Globals.fuel
+		Globals.audited_minerals = Globals.minerals
+		Globals.audited_alloys = Globals.alloys
+		if Globals.audit_fudge_chance > 0:
+			# Fudge the numbers a little depending on the chance
+			var random = RandomNumberGenerator.new()
+			random.randomize()
+			Globals.audited_funds += random.randi_range(-100 * Globals.audit_fudge_chance, 100 * Globals.audit_fudge_chance)
+			Globals.audited_life_support += random.randi_range(-100 * Globals.audit_fudge_chance, 100 * Globals.audit_fudge_chance)
+			Globals.audited_fuel += random.randi_range(-100 * Globals.audit_fudge_chance, 100 * Globals.audit_fudge_chance)
+			Globals.audited_minerals += random.randi_range(-100 * Globals.audit_fudge_chance, 100 * Globals.audit_fudge_chance)
+			Globals.audited_alloys += random.randi_range(-100 * Globals.audit_fudge_chance, 100 * Globals.audit_fudge_chance)
+			# Make sure that the user can never see a negative value
+			Globals.audited_funds = maxi(0, Globals.audited_funds)
+			Globals.audited_life_support = maxi(0, Globals.audited_life_support)
+			Globals.audited_fuel = maxi(0, Globals.audited_fuel)
+			Globals.audited_minerals = maxi(0, Globals.audited_minerals)
+			Globals.audited_alloys = maxi(0, Globals.audited_alloys)
+		Globals.audit_fudge_chance += Globals.audit_fudge_chance_increase
 	Signals.pre_tick.emit(Globals.DAY)
 
 func post_tick() -> void:
@@ -90,6 +113,11 @@ func init_game() -> void:
 	Globals.fuel = 100
 	Globals.minerals = 0
 	Globals.alloys = 100
+	Globals.audited_funds = Globals.funds
+	Globals.audited_life_support = Globals.life_support
+	Globals.audited_fuel = Globals.fuel
+	Globals.audited_minerals = Globals.minerals
+	Globals.audited_alloys = Globals.alloys
 	
 	Globals.act = 1
 	Globals.resupply_time = Constants.RESUPPLY_TIMES[Globals.act - 1]
