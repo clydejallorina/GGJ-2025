@@ -34,7 +34,7 @@ func generate_terrain() -> void:
 		for y in range(-lower_terrain_size + 1, Globals.GRID_SIZE[1] + lower_terrain_size + 1):
 			if x in range(Globals.GRID_SIZE[0]) and y in range(Globals.GRID_SIZE[1]):
 				continue
-			lower_terrain.set_cell(Vector2(x, y), lower_terrain_base_mars_source_id, lower_terrain_base_mars.values().pick_random())
+			lower_terrain.set_cell(Vector2(x, y), terrain_base_mars_source_ids.values().pick_random(), Vector2i(0,0))
 
 # Can make this load from SAVE
 func generate_building() -> void:

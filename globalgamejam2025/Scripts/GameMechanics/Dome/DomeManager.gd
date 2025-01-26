@@ -73,14 +73,18 @@ func get_domes_by_status(status: Enums.DomeStatusEnum) -> Array:
 
 func marsquake(strength: float):
 	var domes = flatten_grid()
-	var non_collapsed_domes = domes.filter(func(dome): return dome not in get_domes_by_status(Enums.DomeStatusEnum.COLLAPSED))
+	var collapsable_domes = domes.filter(
+		func(dome): return dome not in get_domes_by_status(Enums.DomeStatusEnum.COLLAPSED)
+	).filter(
+		func(dome): return dome.type != Enums.DomeTypeEnum.CONTROL_CENTER
+	)
 	
-	if non_collapsed_domes.size() == 0:
+	if collapsable_domes.size() == 0:
 		return
 
 	# Minor bug, can pick the same dome
 	var dome_count = clampi(
-		randi_range(1,non_collapsed_domes.size()),
+		randi_range(1,collapsable_domes.size()),
 		1, Constants.MAX_COLLAPSED_DOME_PER_QUAKE
 	)
 
