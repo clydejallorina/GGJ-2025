@@ -21,3 +21,6 @@ signal screen_shake(trauma: float)
 signal read_messages
 signal read_message(message_id)
 signal new_message
+
+# Task-related signals
+signal task_finished(task: Enums.Task)

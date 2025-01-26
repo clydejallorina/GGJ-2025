@@ -1,6 +1,6 @@
 extends Node
 
-@onready var ticker_node = get_node("GameTicker")
+@onready var ticker_node = $GameTicker
 
 func _ready() -> void:
 	init_game()

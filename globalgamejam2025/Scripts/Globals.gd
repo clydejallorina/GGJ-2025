@@ -72,3 +72,7 @@ var active_laws: Array[Enums.LawsEnum] = []
 
 # Random Collapse
 var random_collapse_chance: float = 0
+
+# Tasks
+var active_tasks: Array[Enums.Task] = []
+var finished_tasks: Array[Enums.Task] = []
