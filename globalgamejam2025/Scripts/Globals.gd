@@ -73,3 +73,10 @@ var unread_messages: int = 0
 
 # Laws
 var active_laws: Array[Enums.LawsEnum] = []
+
+# Random Collapse
+var random_collapse_chance: float = 0
+
+# Tasks
+var active_tasks: Array[Enums.Task] = [Enums.Task.E_STOCKPILE_500_ALLOYS]
+var finished_tasks: Array[Enums.Task] = []

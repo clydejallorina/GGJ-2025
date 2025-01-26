@@ -1,10 +1,11 @@
-[gd_scene load_steps=42 format=3 uid="uid://7j1gcqyfu5h1"]
+[gd_scene load_steps=38 format=3 uid="uid://7j1gcqyfu5h1"]
 
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GameLoop.gd" id="1_v83y0"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/Messaging/Messaging.gd" id="2_6eoon"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/Dome/DomeManager.gd" id="3_gphah"]
 [ext_resource type="Script" path="res://Scripts/GameMechanics/GridMap/GridMap.gd" id="3_x3gsr"]
 [ext_resource type="Texture2D" uid="uid://boyy7uybkq465" path="res://Assets/Tilesets/Terrain/mars_tile.png" id="4_knbe6"]
+[ext_resource type="Script" path="res://Scripts/GameMechanics/Tasks/Tasks.gd" id="4_ppbs1"]
 [ext_resource type="Texture2D" uid="uid://2e7bqqjseo36" path="res://Assets/Tilesets/Terrain/mars_tile_2.png" id="5_07epo"]
 [ext_resource type="Shader" path="res://Shaders/ParallaxGlow.gdshader" id="5_lix01"]
 [ext_resource type="Texture2D" uid="uid://bf8wqldlieciv" path="res://Assets/Tilesets/Terrain/practice iso tiles.png" id="5_nuxp2"]
@@ -359,6 +360,9 @@ script = ExtResource("2_6eoon")
 
 [node name="DomeHandler" type="Node" parent="."]
 script = ExtResource("3_gphah")
+
+[node name="TaskHandler" type="Node" parent="."]
+script = ExtResource("4_ppbs1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
